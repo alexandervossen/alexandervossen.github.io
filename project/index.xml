@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Alexander Vossen</title>
+    <link>https://alexandervossen.github.io/project/</link>
+      <atom:link href="https://alexandervossen.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Projects</title>
+      <link>https://alexandervossen.github.io/project/</link>
+    </image>
+    
+    <item>
+      <title>Cultural Entrepreneurship</title>
+      <link>https://alexandervossen.github.io/project/cultural-entrepreneurship/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/project/cultural-entrepreneurship/</guid>
+      <description>&lt;p&gt;In this project, my co-authors and I focus on cultural entrepreneurship as a strategic resource. In particular, we intend to find out how new ventures and entrepreneurs alike can use texts or visuals to influence evaluating audiences, such as consumers or investors. A prime illustration for this idea is our 2020 paper in JBV, where we look at Indie Game Developers and how they try to narrate their game idea to potential buyers. Most recently, our work focusses on non-written narratives, such as visual or spoken ones. We will hopefully be able to share some working papers in the very near future.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimal Distinctiveness</title>
+      <link>https://alexandervossen.github.io/project/optimal-distinctiveness/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/project/optimal-distinctiveness/</guid>
+      <description>&lt;p&gt;In this project, my co-authors and I focus on how new ventures achieve optimal distinctiveness, i.e., how they become as unique as possible while still being perceived as a legitimate market actor. Much of our work in this project addresses audience evaluation and special category contexts. At the moment, we particularly focus on how optimal distinctiveness evolves over time and how it works in the context of international markets. We will upload these working papers as soon as they are ready. With some papers under review, we hope to be able to share some good news soon.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frank Piller | Alexander Vossen</title>
+    <link>https://alexandervossen.github.io/author/frank-piller/</link>
+      <atom:link href="https://alexandervossen.github.io/author/frank-piller/index.xml" rel="self" type="application/rss+xml" />
+    <description>Frank Piller</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Frank Piller</title>
+      <link>https://alexandervossen.github.io/author/frank-piller/</link>
+    </image>
+    
+    <item>
+      <title>All for the Money? The Limits of Monetary Rewards in Innovation Contests with Users</title>
+      <link>https://alexandervossen.github.io/publication/journal-article-all-money/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/publication/journal-article-all-money/</guid>
+      <description>&lt;!--- &lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+Supplementary notes can be added here, including [code, math, and images](https://wowchemy.com/docs/writing-markdown-latex/).
+---&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
