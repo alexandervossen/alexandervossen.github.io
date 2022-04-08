@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>1 | Alexander Vossen</title>
-    <link>https://alexandervossen.github.io/publication-type/1/</link>
-      <atom:link href="https://alexandervossen.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
-    <description>1</description>
+    <title>Stephanie Weiss | Alexander Vossen</title>
+    <link>https://alexandervossen.github.io/author/stephanie-weiss/</link>
+      <atom:link href="https://alexandervossen.github.io/author/stephanie-weiss/index.xml" rel="self" type="application/rss+xml" />
+    <description>Stephanie Weiss</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
-      <title>1</title>
-      <link>https://alexandervossen.github.io/publication-type/1/</link>
+      <title>Stephanie Weiss</title>
+      <link>https://alexandervossen.github.io/author/stephanie-weiss/</link>
     </image>
     
     <item>
@@ -18,31 +18,6 @@
       <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://alexandervossen.github.io/publication/conference-paper-meaningfully-different/</guid>
       <description>&lt;p&gt;We examine how new ventures in online B2C marketplaces use visuals, such as product videos and images, in their strife for optimal distinctiveness, that is, being as different as conformingly possible. Building on research on cultural entrepreneurship as well as sensory marketing and perception, our work shows that visuals help new ventures orchestrate their distinct organizational identity, that is, appearing either more con- forming or different to evaluating audiences than they truly are. We use machine learning approaches from image label recognition and natural language processing on videos and images of 1,157 entrepreneurial products offered on Amazon Launchpad to analyze the effect of the visual semantics—the meaning contained in visuals—on product performance. We find that visual semantics matter most for new venture’s product performance when firm distinctiveness is low, albeit with a juxtaposing effect: While visuals should adhere to consumer expectations in terms of semantic fit, that is, the type of meaning they convey, they should deviate in terms of semantic rich- ness, that is, the extent of meaning conveyed. By offering a multifaceted perceptual perspective on the way a distinct organizational identity is visually conveyed to audi- ences, our work has important implications for research on optimal distinctiveness. For managers, our work demonstrates clear guidelines for designing and using semantics in product videos and images to appear more or less unique to consumer audiences in online B2C marketplaces.&lt;/p&gt;
-&lt;!--- &lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-Supplementary notes can be added here, including [code, math, and images](https://wowchemy.com/docs/writing-markdown-latex/).
----&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Known for being different? Reputation, Status, and the Optimal Distinctiveness of New Ventures</title>
-      <link>https://alexandervossen.github.io/publication/conference-paper-known-for/</link>
-      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://alexandervossen.github.io/publication/conference-paper-known-for/</guid>
-      <description>&lt;p&gt;We investigate how audience evaluation of new ventures&amp;rsquo; distinctiveness changes over time, i.e., when audiences become more familiar and less uncertain about them.Using longitudinal data on 4,279 products offered by 853 new ventures over 211 weeks on Amazon Launchpad, we observe familiarity through status, i.e., new ventures increasing establishment in the respective product category, and uncertainty through their reputation, i.e., the increasingly available evidence on past performance. Building on the notion of optimal distinctiveness as the trade-off between legitimacy and differentiation, we propose that both status and reputation steepen the U-shaped effect of new ventures&amp;rsquo; distinctiveness.  However, while highly distinct ventures benefit the most, new ventures face an ever increasing &amp;ldquo;stuck in the middle&amp;rdquo; problem that becomes particularly problematic when audiences become more familiar and less uncertain about averagely distinct ventures. Our results show that audience evaluation of a new venture&amp;rsquo;s distinctiveness is not only contingent on preferences or competitive and categorical contexts, but also by evolving degrees of complementary organizational traits. From a managerial perspective, our results provide guidance on how to achieve optimal distinctiveness while evolving into more mature market actors.  Managers need to consider that although they may have found a favorable degree of distinctiveness when entering the overall market this may change as their status or reputation grows.&lt;/p&gt;
 &lt;!--- &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
