@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." />
+  <meta name="description" content="When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is Petersen (2009) that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/" />
@@ -304,7 +304,7 @@
   <meta property="og:site_name" content="Alexander Vossen" />
   <meta property="og:url" content="https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/" />
   <meta property="og:title" content="Un-biasing standard errors in panel data | Alexander Vossen" />
-  <meta property="og:description" content="When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." /><meta property="og:image" content="https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:description" content="When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is Petersen (2009) that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." /><meta property="og:image" content="https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -357,7 +357,7 @@
       "url": "https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)."
+  "description": "When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is Petersen (2009) that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)."
 }
 </script>
 
@@ -838,8 +838,8 @@
       
 
 
-<p>When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect). While the former is often refereed to as serial correlation, the latter is referred to as cross-sectional dependence.</p>
-<p>Usually, when you use a package such as <code>plm</code> you have two different options to choose from for both <code>random effect</code> and <code>fixed effect</code> models to account for the one, the other, or both: the <code>individual</code> (only the group effect), the <code>time</code> (only the time effect) or the <code>twoways</code> effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify <code>twoways</code> effects (for example if you intend to use the <code>nested</code> random effect model) or, more critically to my humble opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”. A great paper on this issue is <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> from which much of this post is borrowed.</p>
+<p>When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect). While the former is often refereed to as serial correlation, the latter is referred to as cross-sectional dependence.</p>
+<p>Usually, when you use a package such as <code>plm</code> you have two different options to choose from for both <code>random effect</code> and <code>fixed effect</code> models to account for the one, the other, or both: the <code>individual</code> (only the group effect), the <code>time</code> (only the time effect) or the <code>twoways</code> effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify <code>twoways</code> effects (for example if you intend to use the <code>nested</code> random effect model) or, more critical in my opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”.</p>
 <p>“Fixed” here means for example that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is basically time-invariant, which is a strong assumption. <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> recommends an additional, and possibly even superior way of doing it: Clustering your standard errors for the time clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the <code>"Fatalities"</code> data that comes with the <code>AER</code> package.</p>
 <pre class="r"><code>library(plm) #for estimating models
 library(AER) #for data
@@ -883,7 +883,7 @@ summary(rdm)</code></pre>
 ## R-Squared:      0.205
 ## Adj. R-Squared: 0.1954
 ## Chisq: 85.3536 on 4 DF, p-value: &lt; 2.22e-16</code></pre>
-<p>What we need to do now is to test the standard errors for bias. A good starting point for this is the <code>coeftest</code> function provided by the <code>lmtest</code> package. First, we compute so-called robust standard errors, where robust stands for heteroscedaticity robust. Usually this is done via a method developed by White (which is why you call it that way in the coeftest command).</p>
+<p>What we need to do now is to test the standard errors for bias. A good starting point for this is the <code>coeftest</code> function provided by the <code>lmtest</code> package. First, we compute so-called robust standard errors, where robust stands for heteroscedaticity robust. Usually this is done via a method developed by White (which is why you call it that way in the <code>coeftest</code> command).</p>
 <pre class="r"><code>rdm_se_hc &lt;- coeftest (rdm, vcov. = vcovHC(rdm, method = &quot;white1&quot;, type = &quot;HC3&quot;))
 rdm_se_hc</code></pre>
 <pre><code>## 
@@ -897,7 +897,7 @@ rdm_se_hc</code></pre>
 ## beertax     -2.1565e+02  7.5794e+01 -2.8451  0.004716 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Note that <code>white1</code> and <code>HC3</code> are usually the standard values for the <code>vcovHC</code> command - however if a <code>plm</code> object is analyzed the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. What we can already see from the results is that the robust standard errors have already more than doubled-so a great bias already found and accounted for. While robust SE help against heteroscedaticity, they do not help against serial corrleation and/or cross-sectional dependence. This is what clustering is for- let us see what it brings at this point:</p>
+<p>Note that <code>white1</code> and <code>HC3</code> are usually the standard values for the <code>vcovHC</code> command - however if a <code>plm</code> object is analyzed the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. What we can already see from the results is that the robust standard errors have already more than doubled-so a great bias already found and accounted for. While robust SE help against heteroscedaticity, they do not help against serial correlation and/or cross-sectional dependence. This is what clustering is for- let us see what it brings at this point:</p>
 <pre class="r"><code>rdm_se_cg &lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &quot;group&quot;))
 rdm_se_cg</code></pre>
 <pre><code>## 
@@ -927,7 +927,7 @@ rdm_se_ct</code></pre>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Here, the SE are actually smaller than the HC ones. This again does not speak for a time effect (again, remember we included a random time effect by using the <code>twoways</code> option). Thus, in this example it seems perfectly fine to just use the robust SE instead of the clustered ones as there seems not to be either a time or group effect that is not captured by our random variables.</p>
-<p>Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extract the second column that contains the standard errors from the <code>named num</code> values the <code>coeftest</code> produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this value only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:</p>
+<p>Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extracts the second column that contains the standard errors from the <code>named num</code> values the <code>coeftest</code> produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:</p>
 <pre class="r"><code>rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest </code></pre>
 <pre><code>##  (Intercept)        unemp       income        miles      beertax 
 ## 2.439589e+02 4.779086e+00 7.618368e-03 1.375804e-03 4.755659e+01</code></pre>
@@ -935,7 +935,8 @@ rdm_se_ct</code></pre>
 <pre><code>## [1] 0.007618368</code></pre>
 <pre class="r"><code>rdm_se_ct[3,2]/rdm_se_hc[3,2] # test for time effect in income variable- no time effect</code></pre>
 <pre><code>## [1] 0.6694436</code></pre>
-<p>Lets test the general function:</p>
+<p>Again the value is below 2 which speaks against the presence of a time effect, or more correctly an additional time effect hat is not controlled for by our random <code>twoways</code> effect.</p>
+<p>Lets look at the general function:</p>
 <pre class="r"><code>test_time_effect &lt;- function(x,...) {
   cov_w&lt;-  coeftest(x, vcov. = vcovHC(x, method = &quot;white1&quot;, type = &quot;HC3&quot;,...))
   cov_time&lt;- coeftest(x, vcov. = vcovHC(x, cluster = &quot;time&quot;, method = &quot;arellano&quot;, ...))
@@ -958,7 +959,7 @@ test_group_effect&lt;- function(x,...) {
 <pre class="r"><code>test_group_effect(rdm)</code></pre>
 <pre><code>## The group clustered errors are: 1.37284 times larger!</code></pre>
 <pre><code>## [1] &quot;No group effect present&quot;</code></pre>
-<p>And the same for the fixed effect option:</p>
+<p>All works the same for the fixed effect option:</p>
 <pre class="r"><code>data(Fatalities) #select build-in dataset
 fix &lt;- plm(fatal ~ unemp+income+miles+beertax, index= c(&quot;state&quot;, &quot;year&quot;), model= &quot;within&quot;, effect= &quot;twoways&quot;, data=Fatalities) # run a random effect regression
 summary(fix)</code></pre>
