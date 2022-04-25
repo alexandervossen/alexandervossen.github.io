@@ -1,0 +1,1425 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.4.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Alexander Vossen" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.512574799414e7d36471486881070b0f.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@@VossenAlexander" />
+    <meta property="twitter:creator" content="@@VossenAlexander" />
+  
+  <meta property="og:site_name" content="Alexander Vossen" />
+  <meta property="og:url" content="https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/" />
+  <meta property="og:title" content="Un-biasing standard errors in panel data | Alexander Vossen" />
+  <meta property="og:description" content="When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)." /><meta property="og:image" content="https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2022-04-21T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2022-04-21T21:55:38&#43;02:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/"
+  },
+  "headline": "Un-biasing standard errors in panel data",
+  
+  "datePublished": "2022-04-21T00:00:00Z",
+  "dateModified": "2022-04-21T21:55:38+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Alexander Vossen"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Alexander Vossen",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect)."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Un-biasing standard errors in panel data | Alexander Vossen</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="cff3df178c202c989baca4608ad7db9c" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.13d3c1ccc66961c64e937f4e854fdd1e.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Alexander Vossen</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Alexander Vossen</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#talks"><span>Talks</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Un-biasing standard errors in panel data</h1>
+
+  
+  <p class="page-subtitle">Introducing a function to test for group and time effects</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 21, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>When dealing with panel data, one surely needs to expect biased standard errors. Most commonly, those result from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect). While the former is often refereed to as serial correlation, the latter is referred to as cross-sectional dependence.</p>
+<p>Usually, when you use a package such as <code>plm</code> you have two different options to choose from for both <code>random effect</code> and <code>fixed effect</code> models to account for the one, the other, or both: the <code>individual</code> (only the group effect), the <code>time</code> (only the time effect) or the <code>twoways</code> effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify <code>twoways</code> effects (for example if you intend to use the <code>nested</code> random effect model) or, more critically to my humble opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”. A great paper on this issue is <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> from which much of this post is borrowed.</p>
+<p>“Fixed” here means for example that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is basically time-invariant, which is a strong assumption. <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> recommends an additional, and possibly even superior way of doing it: Clustering your standard errors for the time clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the <code>"Fatalities"</code> data that comes with the <code>AER</code> package.</p>
+<pre class="r"><code>library(plm) #for estimating models
+library(AER) #for data
+library(lmtest) #for coeftest command</code></pre>
+<pre class="r"><code>data(Fatalities)
+rdm &lt;- plm(fatal ~ unemp+income+miles+beertax, index= c(&quot;state&quot;, &quot;year&quot;), model= &quot;random&quot;, effect= &quot;twoways&quot;, data=Fatalities) # run a random effect regression
+summary(rdm)</code></pre>
+<pre><code>## Twoways effects Random Effect Model 
+##    (Swamy-Arora&#39;s transformation)
+## 
+## Call:
+## plm(formula = fatal ~ unemp + income + miles + beertax, data = Fatalities, 
+##     effect = &quot;twoways&quot;, model = &quot;random&quot;, index = c(&quot;state&quot;, 
+##         &quot;year&quot;))
+## 
+## Balanced Panel: n = 48, T = 7, N = 336
+## 
+## Effects:
+##                     var   std.dev share
+## idiosyncratic   7081.10     84.15 0.009
+## individual    744674.57    862.95 0.990
+## time             376.31     19.40 0.001
+## theta: 0.9632 (id) 0.4693 (time) 0.4693 (total)
+## 
+## Residuals:
+##     Min.  1st Qu.   Median  3rd Qu.     Max. 
+## -297.995  -45.673   -5.660   29.962  583.503 
+## 
+## Coefficients:
+##                Estimate  Std. Error z-value  Pr(&gt;|z|)    
+## (Intercept)  8.2922e+02  2.3080e+02  3.5928 0.0003271 ***
+## unemp       -2.3422e+01  5.4540e+00 -4.2944 1.752e-05 ***
+## income       2.7880e-02  1.0932e-02  2.5503 0.0107624 *  
+## miles       -6.0498e-04  4.8299e-03 -0.1253 0.9003188    
+## beertax     -2.1565e+02  8.6497e+01 -2.4931 0.0126639 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    3134900
+## Residual Sum of Squares: 2492200
+## R-Squared:      0.205
+## Adj. R-Squared: 0.1954
+## Chisq: 85.3536 on 4 DF, p-value: &lt; 2.22e-16</code></pre>
+<p>What we need to do now is to test the standard errors for bias. A good starting point for this is the <code>coeftest</code> function provided by the <code>lmtest</code> package. First, we compute so-called robust standard errors, where robust stands for heteroscedaticity robust. Usually this is done via a method developed by White (which is why you call it that way in the coeftest command).</p>
+<pre class="r"><code>rdm_se_hc &lt;- coeftest (rdm, vcov. = vcovHC(rdm, method = &quot;white1&quot;, type = &quot;HC3&quot;))
+rdm_se_hc</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)  8.2922e+02  2.1639e+02  3.8321  0.000152 ***
+## unemp       -2.3422e+01  5.2501e+00 -4.4612 1.118e-05 ***
+## income       2.7880e-02  1.1380e-02  2.4498  0.014810 *  
+## miles       -6.0498e-04  5.3644e-03 -0.1128  0.910276    
+## beertax     -2.1565e+02  7.5794e+01 -2.8451  0.004716 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Note that <code>white1</code> and <code>HC3</code> are usually the standard values for the <code>vcovHC</code> command - however if a <code>plm</code> object is analyzed the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. What we can already see from the results is that the robust standard errors have already more than doubled-so a great bias already found and accounted for. While robust SE help against heteroscedaticity, they do not help against serial corrleation and/or cross-sectional dependence. This is what clustering is for- let us see what it brings at this point:</p>
+<pre class="r"><code>rdm_se_cg &lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &quot;group&quot;))
+rdm_se_cg</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  8.2922e+02  3.0003e+02  2.7638 0.006033 **
+## unemp       -2.3422e+01  7.8944e+00 -2.9669 0.003227 **
+## income       2.7880e-02  1.7842e-02  1.5626 0.119101   
+## miles       -6.0498e-04  2.8147e-03 -0.2149 0.829951   
+## beertax     -2.1565e+02  1.0040e+02 -2.1478 0.032456 * 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>These are the SE clustered by group, in our example the states. As we can see, they have increased a bit, but not too much. Petersen says when a group effect is present, your SE should increase “3-5 times” (p.476). Here the ratio is much smaller (remember that we already included a random group effect in the model beforehand).</p>
+<p>In a similar manner, one can also cluster by time to look for a time effect. Here the command is:</p>
+<pre class="r"><code>rdm_se_ct &lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &quot;time&quot;))
+rdm_se_ct</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)  8.2922e+02  2.4396e+02  3.3990 0.0007589 ***
+## unemp       -2.3422e+01  4.7791e+00 -4.9009 1.497e-06 ***
+## income       2.7880e-02  7.6184e-03  3.6595 0.0002940 ***
+## miles       -6.0498e-04  1.3758e-03 -0.4397 0.6604202    
+## beertax     -2.1565e+02  4.7557e+01 -4.5345 8.082e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Here, the SE are actually smaller than the HC ones. This again does not speak for a time effect (again, remember we included a random time effect by using the <code>twoways</code> option). Thus, in this example it seems perfectly fine to just use the robust SE instead of the clustered ones as there seems not to be either a time or group effect that is not captured by our random variables.</p>
+<p>Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extract the second column that contains the standard errors from the <code>named num</code> values the <code>coeftest</code> produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this value only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:</p>
+<pre class="r"><code>rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest </code></pre>
+<pre><code>##  (Intercept)        unemp       income        miles      beertax 
+## 2.439589e+02 4.779086e+00 7.618368e-03 1.375804e-03 4.755659e+01</code></pre>
+<pre class="r"><code>rdm_se_ct[3,2] # this will select the standard error of the third IV (income- dont forget to count the intercept)</code></pre>
+<pre><code>## [1] 0.007618368</code></pre>
+<pre class="r"><code>rdm_se_ct[3,2]/rdm_se_hc[3,2] # test for time effect in income variable- no time effect</code></pre>
+<pre><code>## [1] 0.6694436</code></pre>
+<p>Lets test the general function:</p>
+<pre class="r"><code>test_time_effect &lt;- function(x,...) {
+  cov_w&lt;-  coeftest(x, vcov. = vcovHC(x, method = &quot;white1&quot;, type = &quot;HC3&quot;,...))
+  cov_time&lt;- coeftest(x, vcov. = vcovHC(x, cluster = &quot;time&quot;, method = &quot;arellano&quot;, ...))
+  result_ti &lt;- sum(cov_time[,2])/ sum(cov_w[,2])
+  cat(&quot;The time clustered errors are:&quot;, result_ti, &quot;times larger!&quot;)
+  ifelse(result_ti&gt;2, &quot;Time effect likely present&quot;, &quot;No time effect present&quot;)
+}
+
+test_group_effect&lt;- function(x,...) {
+  cov_w&lt;-  coeftest(x, vcov. = vcovHC(x, method = &quot;white1&quot;,type = &quot;HC3&quot;, ...))
+  cov_gr&lt;- coeftest(x, vcov. = vcovHC(x, cluster = &quot;group&quot;, method = &quot;arellano&quot;, ...))
+  result_gr &lt;- sum(cov_gr[,2])/ sum(cov_w[,2])
+  cat(&quot;The group clustered errors are:&quot;, result_gr, &quot;times larger!&quot;)
+  ifelse(result_gr&gt;3, &quot;Group effect likely present&quot;, &quot;No group effect present&quot;)
+}</code></pre>
+<p>Lets test it</p>
+<pre class="r"><code>test_time_effect(rdm)</code></pre>
+<pre><code>## The time clustered errors are: 0.9961568 times larger!</code></pre>
+<pre><code>## [1] &quot;No time effect present&quot;</code></pre>
+<pre class="r"><code>test_group_effect(rdm)</code></pre>
+<pre><code>## The group clustered errors are: 1.37284 times larger!</code></pre>
+<pre><code>## [1] &quot;No group effect present&quot;</code></pre>
+<p>And the same for the fixed effect option:</p>
+<pre class="r"><code>data(Fatalities) #select build-in dataset
+fix &lt;- plm(fatal ~ unemp+income+miles+beertax, index= c(&quot;state&quot;, &quot;year&quot;), model= &quot;within&quot;, effect= &quot;twoways&quot;, data=Fatalities) # run a random effect regression
+summary(fix)</code></pre>
+<pre><code>## Twoways effects Within Model
+## 
+## Call:
+## plm(formula = fatal ~ unemp + income + miles + beertax, data = Fatalities, 
+##     effect = &quot;twoways&quot;, model = &quot;within&quot;, index = c(&quot;state&quot;, 
+##         &quot;year&quot;))
+## 
+## Balanced Panel: n = 48, T = 7, N = 336
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -409.9168  -37.6606    2.0487   36.6331  423.3816 
+## 
+## Coefficients:
+##            Estimate  Std. Error t-value  Pr(&gt;|t|)    
+## unemp   -3.2170e+01  5.7049e+00 -5.6390 4.203e-08 ***
+## income   3.6515e-02  1.1477e-02  3.1816  0.001630 ** 
+## miles    1.5639e-03  4.7378e-03  0.3301  0.741580    
+## beertax -2.7983e+02  8.8942e+01 -3.1463  0.001833 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    2644200
+## Residual Sum of Squares: 1968500
+## R-Squared:      0.25553
+## Adj. R-Squared: 0.10288
+## F-statistic: 23.8545 on 4 and 278 DF, p-value: &lt; 2.22e-16</code></pre>
+<pre class="r"><code>fix_se_hc &lt;- coeftest (fix, vcov. = vcovHC(fix, method = &quot;white1&quot;, type = &quot;HC3&quot;)) 
+fix_se_hc</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value  Pr(&gt;|t|)    
+## unemp   -3.2170e+01  6.1220e+00 -5.2548 2.955e-07 ***
+## income   3.6515e-02  1.0742e-02  3.3993 0.0007747 ***
+## miles    1.5639e-03  8.8353e-03  0.1770 0.8596331    
+## beertax -2.7983e+02  1.0712e+02 -2.6124 0.0094785 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>fix_se_cg &lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &quot;group&quot;))
+fix_se_cg</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value Pr(&gt;|t|)   
+## unemp   -3.2170e+01  1.0236e+01 -3.1429 0.001854 **
+## income   3.6515e-02  1.8091e-02  2.0184 0.044515 * 
+## miles    1.5639e-03  3.1294e-03  0.4997 0.617651   
+## beertax -2.7983e+02  1.5102e+02 -1.8530 0.064944 . 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>fix_se_ct &lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &quot;time&quot;)) 
+fix_se_ct</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value  Pr(&gt;|t|)    
+## unemp   -3.2170e+01  4.9493e+00 -6.4998 3.710e-10 ***
+## income   3.6515e-02  7.5746e-03  4.8206 2.358e-06 ***
+## miles    1.5639e-03  2.2998e-03  0.6800    0.4971    
+## beertax -2.7983e+02  3.5026e+01 -7.9893 3.633e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>test_time_effect(fix)</code></pre>
+<pre><code>## The time clustered errors are: 0.3530503 times larger!</code></pre>
+<pre><code>## [1] &quot;No time effect present&quot;</code></pre>
+<pre class="r"><code>test_group_effect(fix)</code></pre>
+<pre><code>## The group clustered errors are: 1.423968 times larger!</code></pre>
+<pre><code>## [1] &quot;No group effect present&quot;</code></pre>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-petersenEstimatingStandardErrors2009" class="csl-entry">
+Petersen, Mitchell A. 2009. <span>“Estimating <span>Standard Errors</span> in <span>Finance Panel Data Sets</span>: <span>Comparing Approaches</span>.”</span> <em>Review of Financial Studies</em> 22 (1): 435–80. <a href="https://doi.org/10.1093/rfs/hhn053">https://doi.org/10.1093/rfs/hhn053</a>.
+</div>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/tag/panel-data/">Panel data</a>
+  
+  <a class="badge badge-light" href="/tag/standard-errors/">Standard errors</a>
+  
+  <a class="badge badge-light" href="/tag/code/">Code</a>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://alexandervossen.github.io/"><img class="avatar mr-3 avatar-circle" src="/author/alexander-vossen/avatar_hu9fc121f5b82e002c87e5c613caa0a716_2260392_270x270_fill_q75_lanczos_center.jpg" alt="Alexander Vossen"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://alexandervossen.github.io/">Alexander Vossen</a></h5>
+      <h6 class="card-subtitle">Assistant Professor of Entrepreneurship</h6>
+      <p class="card-text">My research interests include entrepreneurship, strategic differentiation, and natural language processing.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/VossenAlexander" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.de/citations?user=IkaGR58AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/AlexanderVossen" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/alexander-vossen-198a6b51/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://orcid.org/0000-0002-9266-2022" target="_blank" rel="noopener">
+        <i class="fab fa-orcid"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy/ Datenschutz</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Imprint/Impressum</a>
+    
+  </p>
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.3d946de2e8784a477845261d87025092.js"></script>
+
+    
+    
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.208bf5db800f4a4e5a38cf3b67a99a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.63639926e24ecfb8040ea052c1077969.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>
