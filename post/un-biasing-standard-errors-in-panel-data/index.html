@@ -310,10 +310,10 @@
     
       <meta
         property="article:published_time"
-        content="2022-04-21T00:00:00&#43;00:00"
+        content="2022-04-26T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2022-04-21T21:55:38&#43;02:00">
+    <meta property="article:modified_time" content="2022-04-26T00:00:00&#43;00:00">
   
 
   
@@ -341,8 +341,8 @@
   },
   "headline": "Un-biasing standard errors in panel data",
   
-  "datePublished": "2022-04-21T00:00:00Z",
-  "dateModified": "2022-04-21T21:55:38+02:00",
+  "datePublished": "2022-04-26T00:00:00Z",
+  "dateModified": "2022-04-26T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -793,10 +793,8 @@
     
     
       
-          Last updated on
-      
     
-    Apr 21, 2022
+    Apr 26, 2022
   </span>
   
 
@@ -805,7 +803,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    9 min read
+    11 min read
   </span>
   
 
@@ -840,7 +838,10 @@
 
 <p>When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect). While the former is often refereed to as serial correlation, the latter is referred to as cross-sectional dependence.</p>
 <p>Usually, when you use a package such as <code>plm</code> you have two different options to choose from for both <code>random effect</code> and <code>fixed effect</code> models to account for the one, the other, or both: the <code>individual</code> (only the group effect), the <code>time</code> (only the time effect) or the <code>twoways</code> effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify <code>twoways</code> effects (for example if you intend to use the <code>nested</code> random effect model) or, more critical in my opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”.</p>
-<p>“Fixed” here means for example that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is basically time-invariant, which is a strong assumption. <span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> recommends an additional, and possibly even superior way of doing it: Clustering your standard errors for the time clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the <code>"Fatalities"</code> data that comes with the <code>AER</code> package.</p>
+<p>“Fixed” here means for example that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is basically time-invariant, which is a strong assumption.</p>
+<p>Think about the following examples: Image you are interested in the amount of money raised by start-ups in several funding rounds. Clearly, it is well known that the pitch, i.e., the presentation, influences investor decisions <span class="citation">(<a href="#ref-martensStoriesTheyTell2007" role="doc-biblioref">Martens, Jennings, and Jennings 2007</a>)</span>. The problem is that often you cannot explicitly measure how “good” such a pitch was - you are usually not present and do not have a clear measurement on how well it was received by investors. As you have observations from multiple funding rounds, you usually would use a dummy for each start-up to control for such unobserved effects. However, that dummy does not change and stays the same across all funding rounds- while it may not be impossible that the presenter’s performance at the respective pitches vary strongly (think about either having a bad day, or it may be even a completely different presenter across funding rounds). Therefore, it is possible that the “fixed” group dummy is biased.</p>
+<p>For the time effect, the situation is similar. For capturing time effects you would use year dummies to indicate in which year the funding took place. Again this is “fixed”, in this case this means that it is the same for all start-ups that looked for funding in a given year. Just think about the pandemic: How realistic is it that funding rounds in 2021 have been identical for a start-up that works on a covid vaccine and a start-up that works on a dating app (which no one can use in a lockdown). These simplified examples show that such “fixed” time and/or group effects are a strong assumption.</p>
+<p><span class="citation">Petersen (<a href="#ref-petersenEstimatingStandardErrors2009" role="doc-biblioref">2009</a>)</span> recommends an additional, and possibly even superior way of addressing this issue: Clustering your standard errors for the time and/or group clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the <code>"Fatalities"</code> data that comes with the <code>AER</code> package.</p>
 <pre class="r"><code>library(plm) #for estimating models
 library(AER) #for data
 library(lmtest) #for coeftest command</code></pre>
@@ -1035,6 +1036,9 @@ fix_se_ct</code></pre>
 <div id="references" class="section level3 unnumbered">
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-martensStoriesTheyTell2007" class="csl-entry">
+Martens, Martin L., Jennifer E. Jennings, and P. Devereaux Jennings. 2007. <span>“Do the <span>Stories They</span> Tell Get Them the <span>Money They Need</span>? <span>The Role</span> of <span>Entrepreneurial Narratives</span> in <span>Resource Acquisition</span>.”</span> <em>Academy of Management Journal</em> 50 (5): 1107–32. <a href="https://doi.org/10.5465/amj.2007.27169488">https://doi.org/10.5465/amj.2007.27169488</a>.
+</div>
 <div id="ref-petersenEstimatingStandardErrors2009" class="csl-entry">
 Petersen, Mitchell A. 2009. <span>“Estimating <span>Standard Errors</span> in <span>Finance Panel Data Sets</span>: <span>Comparing Approaches</span>.”</span> <em>Review of Financial Studies</em> 22 (1): 435–80. <a href="https://doi.org/10.1093/rfs/hhn053">https://doi.org/10.1093/rfs/hhn053</a>.
 </div>
