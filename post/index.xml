@@ -113,7 +113,7 @@ rdm_se_ct&lt;/code&gt;&lt;/pre&gt;
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here, the SE are actually smaller than the HC ones. This again does not speak for a time effect (again, remember we included a random time effect by using the &lt;code&gt;twoways&lt;/code&gt; option). Thus, in this example it seems perfectly fine to just use the robust SE instead of the clustered ones as there seems not to be either a time or group effect that is not captured by our random variables.&lt;/p&gt;
 &lt;p&gt;Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extracts the second column that contains the standard errors from the &lt;code&gt;named num&lt;/code&gt; values the &lt;code&gt;coeftest&lt;/code&gt; produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  (Intercept)        unemp       income        miles      beertax 
 ## 2.439589e+02 4.779086e+00 7.618368e-03 1.375804e-03 4.755659e+01&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[3,2] # this will select the standard error of the third IV (income- dont forget to count the intercept)&lt;/code&gt;&lt;/pre&gt;
@@ -175,7 +175,7 @@ summary(fix)&lt;/code&gt;&lt;/pre&gt;
 ## R-Squared:      0.25553
 ## Adj. R-Squared: 0.10288
 ## F-statistic: 23.8545 on 4 and 278 DF, p-value: &amp;lt; 2.22e-16&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_hc &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;)) 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_hc &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;))
 fix_se_hc&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ## t test of coefficients:
@@ -199,7 +199,7 @@ fix_se_cg&lt;/code&gt;&lt;/pre&gt;
 ## beertax -2.7983e+02  1.5102e+02 -1.8530 0.064944 . 
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_ct &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &amp;quot;time&amp;quot;)) 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_ct &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &amp;quot;time&amp;quot;))
 fix_se_ct&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ## t test of coefficients:

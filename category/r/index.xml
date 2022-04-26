@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R | Alexander Vossen</title>
+    <link>https://alexandervossen.github.io/category/r/</link>
+      <atom:link href="https://alexandervossen.github.io/category/r/index.xml" rel="self" type="application/rss+xml" />
+    <description>R</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://alexandervossen.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>R</title>
+      <link>https://alexandervossen.github.io/category/r/</link>
+    </image>
+    
+    <item>
+      <title>Un-biasing standard errors in panel data</title>
+      <link>https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://alexandervossen.github.io/post/un-biasing-standard-errors-in-panel-data/</guid>
+      <description>
+
+
+&lt;p&gt;When dealing with panel data, one surely needs to expect biased standard errors. A great paper on this issue is &lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; that this post builds on. Most commonly, the bias results from either correlation of between different time periods of a group (a group effect) or correlation across different groups within the same time period ( a time effect). While the former is often refereed to as serial correlation, the latter is referred to as cross-sectional dependence.&lt;/p&gt;
+&lt;p&gt;Usually, when you use a package such as &lt;code&gt;plm&lt;/code&gt; you have two different options to choose from for both &lt;code&gt;random effect&lt;/code&gt; and &lt;code&gt;fixed effect&lt;/code&gt; models to account for the one, the other, or both: the &lt;code&gt;individual&lt;/code&gt; (only the group effect), the &lt;code&gt;time&lt;/code&gt; (only the time effect) or the &lt;code&gt;twoways&lt;/code&gt; effect (both group and time effect). Although this seems easy and straightforward right away, there may be situations where you cannot simply specify &lt;code&gt;twoways&lt;/code&gt; effects (for example if you intend to use the &lt;code&gt;nested&lt;/code&gt; random effect model) or, more critical in my opinion, one of the key assumptions of this approach is not valid: namely that both group and time effects are “fixed”.&lt;/p&gt;
+&lt;p&gt;“Fixed” here means for example that a group effect stays constant across all your time observations. This means implicitly that you assume that the impact of all the things you do not know or cannot measure for a firm is basically time-invariant, which is a strong assumption.&lt;/p&gt;
+&lt;p&gt;Think about the following examples: Image you are interested in the amount of money raised by start-ups in several funding rounds. Clearly, it is well known that the pitch, i.e., the presentation, influences investor decisions &lt;span class=&#34;citation&#34;&gt;(&lt;a href=&#34;#ref-martensStoriesTheyTell2007&#34; role=&#34;doc-biblioref&#34;&gt;Martens, Jennings, and Jennings 2007&lt;/a&gt;)&lt;/span&gt;. The problem is that often you cannot explicitly measure how “good” such a pitch was - you are usually not present and do not have a clear measurement on how well it was received by investors. As you have observations from multiple funding rounds, you usually would use a dummy for each start-up to control for such unobserved effects. However, that dummy does not change and stays the same across all funding rounds- while it may not be impossible that the presenter’s performance at the respective pitches vary strongly (think about either having a bad day, or it may be even a completely different presenter across funding rounds). Therefore, it is possible that the “fixed” group dummy is biased.&lt;/p&gt;
+&lt;p&gt;For the time effect, the situation is similar. For capturing time effects you would use year dummies to indicate in which year the funding took place. Again this is “fixed”, in this case this means that it is the same for all start-ups that looked for funding in a given year. Just think about the pandemic: How realistic is it that funding rounds in 2021 have been identical for a start-up that works on a covid vaccine and a start-up that works on a dating app (which no one can use in a lockdown). These simplified examples show that such “fixed” time and/or group effects are a strong assumption.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;Petersen (&lt;a href=&#34;#ref-petersenEstimatingStandardErrors2009&#34; role=&#34;doc-biblioref&#34;&gt;2009&lt;/a&gt;)&lt;/span&gt; recommends an additional, and possibly even superior way of addressing this issue: Clustering your standard errors for the time and/or group clusters. I used it for one of my projects and I wanted to share a small function I wrote to quickly test if a group and/or time effect is present in your data. Let me illustrate with the &lt;code&gt;&#34;Fatalities&#34;&lt;/code&gt; data that comes with the &lt;code&gt;AER&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(plm) #for estimating models
+library(AER) #for data
+library(lmtest) #for coeftest command&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(Fatalities)
+rdm &amp;lt;- plm(fatal ~ unemp+income+miles+beertax, index= c(&amp;quot;state&amp;quot;, &amp;quot;year&amp;quot;), model= &amp;quot;random&amp;quot;, effect= &amp;quot;twoways&amp;quot;, data=Fatalities) # run a random effect regression
+summary(rdm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Twoways effects Random Effect Model 
+##    (Swamy-Arora&amp;#39;s transformation)
+## 
+## Call:
+## plm(formula = fatal ~ unemp + income + miles + beertax, data = Fatalities, 
+##     effect = &amp;quot;twoways&amp;quot;, model = &amp;quot;random&amp;quot;, index = c(&amp;quot;state&amp;quot;, 
+##         &amp;quot;year&amp;quot;))
+## 
+## Balanced Panel: n = 48, T = 7, N = 336
+## 
+## Effects:
+##                     var   std.dev share
+## idiosyncratic   7081.10     84.15 0.009
+## individual    744674.57    862.95 0.990
+## time             376.31     19.40 0.001
+## theta: 0.9632 (id) 0.4693 (time) 0.4693 (total)
+## 
+## Residuals:
+##     Min.  1st Qu.   Median  3rd Qu.     Max. 
+## -297.995  -45.673   -5.660   29.962  583.503 
+## 
+## Coefficients:
+##                Estimate  Std. Error z-value  Pr(&amp;gt;|z|)    
+## (Intercept)  8.2922e+02  2.3080e+02  3.5928 0.0003271 ***
+## unemp       -2.3422e+01  5.4540e+00 -4.2944 1.752e-05 ***
+## income       2.7880e-02  1.0932e-02  2.5503 0.0107624 *  
+## miles       -6.0498e-04  4.8299e-03 -0.1253 0.9003188    
+## beertax     -2.1565e+02  8.6497e+01 -2.4931 0.0126639 *  
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Total Sum of Squares:    3134900
+## Residual Sum of Squares: 2492200
+## R-Squared:      0.205
+## Adj. R-Squared: 0.1954
+## Chisq: 85.3536 on 4 DF, p-value: &amp;lt; 2.22e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What we need to do now is to test the standard errors for bias. A good starting point for this is the &lt;code&gt;coeftest&lt;/code&gt; function provided by the &lt;code&gt;lmtest&lt;/code&gt; package. First, we compute so-called robust standard errors, where robust stands for heteroscedaticity robust. Usually this is done via a method developed by White (which is why you call it that way in the &lt;code&gt;coeftest&lt;/code&gt; command).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_hc &amp;lt;- coeftest (rdm, vcov. = vcovHC(rdm, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;))
+rdm_se_hc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value  Pr(&amp;gt;|t|)    
+## (Intercept)  8.2922e+02  2.1639e+02  3.8321  0.000152 ***
+## unemp       -2.3422e+01  5.2501e+00 -4.4612 1.118e-05 ***
+## income       2.7880e-02  1.1380e-02  2.4498  0.014810 *  
+## miles       -6.0498e-04  5.3644e-03 -0.1128  0.910276    
+## beertax     -2.1565e+02  7.5794e+01 -2.8451  0.004716 ** 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that &lt;code&gt;white1&lt;/code&gt; and &lt;code&gt;HC3&lt;/code&gt; are usually the standard values for the &lt;code&gt;vcovHC&lt;/code&gt; command - however if a &lt;code&gt;plm&lt;/code&gt; object is analyzed the default is switched to clustered standard errors due to the panel structure. Therefore we have to manually switch it to the selection above. What we can already see from the results is that the robust standard errors have already more than doubled-so a great bias already found and accounted for. While robust SE help against heteroscedaticity, they do not help against serial correlation and/or cross-sectional dependence. This is what clustering is for- let us see what it brings at this point:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_cg &amp;lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &amp;quot;group&amp;quot;))
+rdm_se_cg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)  8.2922e+02  3.0003e+02  2.7638 0.006033 **
+## unemp       -2.3422e+01  7.8944e+00 -2.9669 0.003227 **
+## income       2.7880e-02  1.7842e-02  1.5626 0.119101   
+## miles       -6.0498e-04  2.8147e-03 -0.2149 0.829951   
+## beertax     -2.1565e+02  1.0040e+02 -2.1478 0.032456 * 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These are the SE clustered by group, in our example the states. As we can see, they have increased a bit, but not too much. Petersen says when a group effect is present, your SE should increase “3-5 times” (p.476). Here the ratio is much smaller (remember that we already included a random group effect in the model beforehand).&lt;/p&gt;
+&lt;p&gt;In a similar manner, one can also cluster by time to look for a time effect. Here the command is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct &amp;lt;- coeftest (rdm, vcov. = vcovHC(rdm, cluster = &amp;quot;time&amp;quot;))
+rdm_se_ct&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##                Estimate  Std. Error t value  Pr(&amp;gt;|t|)    
+## (Intercept)  8.2922e+02  2.4396e+02  3.3990 0.0007589 ***
+## unemp       -2.3422e+01  4.7791e+00 -4.9009 1.497e-06 ***
+## income       2.7880e-02  7.6184e-03  3.6595 0.0002940 ***
+## miles       -6.0498e-04  1.3758e-03 -0.4397 0.6604202    
+## beertax     -2.1565e+02  4.7557e+01 -4.5345 8.082e-06 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the SE are actually smaller than the HC ones. This again does not speak for a time effect (again, remember we included a random time effect by using the &lt;code&gt;twoways&lt;/code&gt; option). Thus, in this example it seems perfectly fine to just use the robust SE instead of the clustered ones as there seems not to be either a time or group effect that is not captured by our random variables.&lt;/p&gt;
+&lt;p&gt;Here is the small function I wrote. Please note a few things: It compares the clustered SE with the robust White as suggested by Petersen. It then extracts the second column that contains the standard errors from the &lt;code&gt;named num&lt;/code&gt; values the &lt;code&gt;coeftest&lt;/code&gt; produce. I then sum them up and divide them with each other to obtain the ratio and compare them to the critical values of 3 (group effect) and 2 (time effect). Take this only as an indication! The change in standard error values is usually not consistent across variables, i.e., it can be stronger/weaker for some. As it actually sums up all the standard errors of the variables included in the model (including your control variables) the magnitude of the group effect may be partially driven by the scales your variables are measured on. If you want to be sure you can always single out an individual IV with the code. Simply do the following:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[,2] #this will select all the standard errors (second column) from your coeftest&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  (Intercept)        unemp       income        miles      beertax 
+## 2.439589e+02 4.779086e+00 7.618368e-03 1.375804e-03 4.755659e+01&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[3,2] # this will select the standard error of the third IV (income- dont forget to count the intercept)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.007618368&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rdm_se_ct[3,2]/rdm_se_hc[3,2] # test for time effect in income variable- no time effect&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6694436&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Again the value is below 2 which speaks against the presence of a time effect, or more correctly an additional time effect hat is not controlled for by our random &lt;code&gt;twoways&lt;/code&gt; effect.&lt;/p&gt;
+&lt;p&gt;Lets look at the general function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_time_effect &amp;lt;- function(x,...) {
+  cov_w&amp;lt;-  coeftest(x, vcov. = vcovHC(x, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;,...))
+  cov_time&amp;lt;- coeftest(x, vcov. = vcovHC(x, cluster = &amp;quot;time&amp;quot;, method = &amp;quot;arellano&amp;quot;, ...))
+  result_ti &amp;lt;- sum(cov_time[,2])/ sum(cov_w[,2])
+  cat(&amp;quot;The time clustered errors are:&amp;quot;, result_ti, &amp;quot;times larger!&amp;quot;)
+  ifelse(result_ti&amp;gt;2, &amp;quot;Time effect likely present&amp;quot;, &amp;quot;No time effect present&amp;quot;)
+}
+
+test_group_effect&amp;lt;- function(x,...) {
+  cov_w&amp;lt;-  coeftest(x, vcov. = vcovHC(x, method = &amp;quot;white1&amp;quot;,type = &amp;quot;HC3&amp;quot;, ...))
+  cov_gr&amp;lt;- coeftest(x, vcov. = vcovHC(x, cluster = &amp;quot;group&amp;quot;, method = &amp;quot;arellano&amp;quot;, ...))
+  result_gr &amp;lt;- sum(cov_gr[,2])/ sum(cov_w[,2])
+  cat(&amp;quot;The group clustered errors are:&amp;quot;, result_gr, &amp;quot;times larger!&amp;quot;)
+  ifelse(result_gr&amp;gt;3, &amp;quot;Group effect likely present&amp;quot;, &amp;quot;No group effect present&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lets test it&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_time_effect(rdm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The time clustered errors are: 0.9961568 times larger!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No time effect present&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_group_effect(rdm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The group clustered errors are: 1.37284 times larger!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No group effect present&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All works the same for the fixed effect option:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(Fatalities) #select build-in dataset
+fix &amp;lt;- plm(fatal ~ unemp+income+miles+beertax, index= c(&amp;quot;state&amp;quot;, &amp;quot;year&amp;quot;), model= &amp;quot;within&amp;quot;, effect= &amp;quot;twoways&amp;quot;, data=Fatalities) # run a random effect regression
+summary(fix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Twoways effects Within Model
+## 
+## Call:
+## plm(formula = fatal ~ unemp + income + miles + beertax, data = Fatalities, 
+##     effect = &amp;quot;twoways&amp;quot;, model = &amp;quot;within&amp;quot;, index = c(&amp;quot;state&amp;quot;, 
+##         &amp;quot;year&amp;quot;))
+## 
+## Balanced Panel: n = 48, T = 7, N = 336
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -409.9168  -37.6606    2.0487   36.6331  423.3816 
+## 
+## Coefficients:
+##            Estimate  Std. Error t-value  Pr(&amp;gt;|t|)    
+## unemp   -3.2170e+01  5.7049e+00 -5.6390 4.203e-08 ***
+## income   3.6515e-02  1.1477e-02  3.1816  0.001630 ** 
+## miles    1.5639e-03  4.7378e-03  0.3301  0.741580    
+## beertax -2.7983e+02  8.8942e+01 -3.1463  0.001833 ** 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Total Sum of Squares:    2644200
+## Residual Sum of Squares: 1968500
+## R-Squared:      0.25553
+## Adj. R-Squared: 0.10288
+## F-statistic: 23.8545 on 4 and 278 DF, p-value: &amp;lt; 2.22e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_hc &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, method = &amp;quot;white1&amp;quot;, type = &amp;quot;HC3&amp;quot;))
+fix_se_hc&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value  Pr(&amp;gt;|t|)    
+## unemp   -3.2170e+01  6.1220e+00 -5.2548 2.955e-07 ***
+## income   3.6515e-02  1.0742e-02  3.3993 0.0007747 ***
+## miles    1.5639e-03  8.8353e-03  0.1770 0.8596331    
+## beertax -2.7983e+02  1.0712e+02 -2.6124 0.0094785 ** 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_cg &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &amp;quot;group&amp;quot;))
+fix_se_cg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value Pr(&amp;gt;|t|)   
+## unemp   -3.2170e+01  1.0236e+01 -3.1429 0.001854 **
+## income   3.6515e-02  1.8091e-02  2.0184 0.044515 * 
+## miles    1.5639e-03  3.1294e-03  0.4997 0.617651   
+## beertax -2.7983e+02  1.5102e+02 -1.8530 0.064944 . 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fix_se_ct &amp;lt;- coeftest (fix, vcov. = vcovHC(fix, cluster = &amp;quot;time&amp;quot;))
+fix_se_ct&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## t test of coefficients:
+## 
+##            Estimate  Std. Error t value  Pr(&amp;gt;|t|)    
+## unemp   -3.2170e+01  4.9493e+00 -6.4998 3.710e-10 ***
+## income   3.6515e-02  7.5746e-03  4.8206 2.358e-06 ***
+## miles    1.5639e-03  2.2998e-03  0.6800    0.4971    
+## beertax -2.7983e+02  3.5026e+01 -7.9893 3.633e-14 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_time_effect(fix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The time clustered errors are: 0.3530503 times larger!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No time effect present&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_group_effect(fix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The group clustered errors are: 1.423968 times larger!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No group effect present&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3 unnumbered&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-martensStoriesTheyTell2007&#34; class=&#34;csl-entry&#34;&gt;
+Martens, Martin L., Jennifer E. Jennings, and P. Devereaux Jennings. 2007. &lt;span&gt;“Do the &lt;span&gt;Stories They&lt;/span&gt; Tell Get Them the &lt;span&gt;Money They Need&lt;/span&gt;? &lt;span&gt;The Role&lt;/span&gt; of &lt;span&gt;Entrepreneurial Narratives&lt;/span&gt; in &lt;span&gt;Resource Acquisition&lt;/span&gt;.”&lt;/span&gt; &lt;em&gt;Academy of Management Journal&lt;/em&gt; 50 (5): 1107–32. &lt;a href=&#34;https://doi.org/10.5465/amj.2007.27169488&#34;&gt;https://doi.org/10.5465/amj.2007.27169488&lt;/a&gt;.
+&lt;/div&gt;
+&lt;div id=&#34;ref-petersenEstimatingStandardErrors2009&#34; class=&#34;csl-entry&#34;&gt;
+Petersen, Mitchell A. 2009. &lt;span&gt;“Estimating &lt;span&gt;Standard Errors&lt;/span&gt; in &lt;span&gt;Finance Panel Data Sets&lt;/span&gt;: &lt;span&gt;Comparing Approaches&lt;/span&gt;.”&lt;/span&gt; &lt;em&gt;Review of Financial Studies&lt;/em&gt; 22 (1): 435–80. &lt;a href=&#34;https://doi.org/10.1093/rfs/hhn053&#34;&gt;https://doi.org/10.1093/rfs/hhn053&lt;/a&gt;.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
