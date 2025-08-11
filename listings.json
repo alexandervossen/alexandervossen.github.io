@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/posts/post_1.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": [
+      "/research/research_responsible_lab.html"
+    ]
+  }
+]

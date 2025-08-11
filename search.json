@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "The Accidental Data Scientist",
+    "section": "",
+    "text": "Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.\nThis blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. You’re perfectly free to disagree. And yes, I’m occasionally wrong—because, after all, being a scientist means rarely being absolutely certain, but always being eager to learn when you’re mistaken.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nPlaceholder\n\n\n\n\n\n\nmethods\n\n\nopinions\n\n\ngrumpy-statistics\n\n\n\nPlaceholder\n\n\n\n\n\nAug 11, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Olga made a new website\nEverybody is happy about it"
+  },
+  {
+    "objectID": "imprint.html",
+    "href": "imprint.html",
+    "title": "Imprint/Impressum",
+    "section": "",
+    "text": "Impressum\nAngaben gemäß § 5 TMG \nInhaltlich verantwortlich für den Inhalt der Website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nKontakt \na.vossen@tilburguniversity.edu\nImprint\nStatement according to § 5 TMG \nResponsible for the content of this website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nContact \na.vossen@tilburguniversity.edu"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Alexander Vossen",
+    "section": "",
+    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it.\nSince 2023, I’ve been an Assistant Professor at Tilburg University and JADS—and, as of May 2025, I’ll be an Associate Professor (after what I like to call a highly strategic act of internal persuasion). Before that, I held positions in Germany and Norway, and my work has appeared in journals such as the Journal of Business Venturing and the Journal of Retailing. I also serve on the editorial review board of Entrepreneurship Theory & Practice."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Alexander Vossen",
+    "section": "",
+    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it.\nSince 2023, I’ve been an Assistant Professor at Tilburg University and JADS—and, as of May 2025, I’ll be an Associate Professor (after what I like to call a highly strategic act of internal persuasion). Before that, I held positions in Germany and Norway, and my work has appeared in journals such as the Journal of Business Venturing and the Journal of Retailing. I also serve on the editorial review board of Entrepreneurship Theory & Practice."
+  },
+  {
+    "objectID": "index.html#how-to-find-me",
+    "href": "index.html#how-to-find-me",
+    "title": "Alexander Vossen",
+    "section": "How to find me",
+    "text": "How to find me\nCome visit me at our lovely JADS campus in Den Bosch!\nIf you don’t like what you read here, feel free to show up in person and file your complaints.\nWe’re just a five-minute stroll from the central station — long enough to reconsider your opinions, but short enough not to change your mind."
+  },
+  {
+    "objectID": "privacy.html",
+    "href": "privacy.html",
+    "title": "Privacy Policy/Datenschutz",
+    "section": "",
+    "text": "Datenschutz\nIch speichere keine Informationen über Besucher:innen dieser Webseite.\nDie Webseite wird bei GitHub Pages bereitgestellt. GitHub stellt umfassende Informationen zu den erhobenen und gespeicherten Daten im GitHub Privacy Statement bereit.\nPrivacy Information\nI do not store any information about the visitors of this website.\nThis website is hosted by GitHub Pages. For more detailed information on the data collected and stored by GitHub please refer to the GitHub Privacy Statement."
+  }
+]
