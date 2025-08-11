@@ -11,7 +11,21 @@
     "href": "news.html",
     "title": "News",
     "section": "",
-    "text": "Olga made a new website\nEverybody is happy about it"
+    "text": "Test"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Welcome to my research section—home to thrilling adventures in statistical models, obscure theoretical debates, and tables so wide you’ll need a second monitor just to scroll through them. Under this section, I’ll be tirelessly working to help you drift off to sleep with some of my most “exciting” academic findings. Think of it as a free, open-access alternative to chamomile tea: carefully crafted to satisfy the intellectually curious, yet perfectly capable of lulling you into a peaceful nap. Enjoy and now relax…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimal Distinctiveness\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research/optimal_distinctiveness.html",
+    "href": "research/optimal_distinctiveness.html",
+    "title": "Optimal Distinctiveness",
+    "section": "",
+    "text": "In this project, my co-authors and I tackle a classic entrepreneurial dilemma: how to be different enough to get noticed, but not so different that people think you’ve lost the plot. This balancing act—optimal distinctiveness—is our research playground. We dig into how audiences judge ventures and how the rules change in quirky niche markets and across international borders. Lately, we’re especially obsessed with how this sweet spot shifts over time. Working papers will appear here once they’re presentable (and possibly after they’ve stopped arguing with reviewers). With a few papers under review, we’re cautiously optimistic about sharing good news soon."
   },
   {
     "objectID": "imprint.html",
@@ -25,14 +39,14 @@
     "href": "index.html",
     "title": "Alexander Vossen",
     "section": "",
-    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it.\nSince 2023, I’ve been an Assistant Professor at Tilburg University and JADS—and, as of May 2025, I’ll be an Associate Professor (after what I like to call a highly strategic act of internal persuasion). Before that, I held positions in Germany and Norway, and my work has appeared in journals such as the Journal of Business Venturing and the Journal of Retailing. I also serve on the editorial review board of Entrepreneurship Theory & Practice."
+    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it."
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
     "title": "Alexander Vossen",
     "section": "",
-    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it.\nSince 2023, I’ve been an Assistant Professor at Tilburg University and JADS—and, as of May 2025, I’ll be an Associate Professor (after what I like to call a highly strategic act of internal persuasion). Before that, I held positions in Germany and Norway, and my work has appeared in journals such as the Journal of Business Venturing and the Journal of Retailing. I also serve on the editorial review board of Entrepreneurship Theory & Practice."
+    "text": "Welcome to my website, where I attempt to escape the tight norms of university web presences. I’m a data-driven social scientist working at the intersection of strategy, marketing, organizational sociology—and just a little bit of chaos theory. My research explores how entrepreneurs manage the balancing act between standing out and fitting in—what scholars like to call optimal distinctiveness. I’m especially interested in how they use cultural tools like narratives, imagery, and video to navigate this space. I rely on large-scale digital data and computational methods like NLP and image recognition to make sense of how entrepreneurial ventures behave. If it’s messy, unstructured, and vaguely text-adjacent, I probably want to analyze it."
   },
   {
     "objectID": "index.html#how-to-find-me",
