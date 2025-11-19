@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Vossen">
-<meta name="dcterms.date" content="2025-08-11">
-<meta name="description" content="Placeholder">
+<meta name="dcterms.date" content="2025-11-19">
+<meta name="description" content="Hot Takes in Cold Blood">
 
-<title>Placeholder</title>
+<title>Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -70,12 +90,12 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Placeholder">
-<meta property="og:description" content="Placeholder">
-<meta property="og:image" content="https://alexandervossen.github.io/blog/blog_files/consistency_robustness_banner.png">
-<meta name="twitter:title" content="Placeholder">
-<meta name="twitter:description" content="Placeholder">
-<meta name="twitter:image" content="https://alexandervossen.github.io/blog/blog_files/consistency_robustness_banner.png">
+<meta property="og:title" content="Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)">
+<meta property="og:description" content="Hot Takes in Cold Blood">
+<meta property="og:image" content="https://alexandervossen.github.io/blog/posts/files/ponder.jpg">
+<meta name="twitter:title" content="Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)">
+<meta name="twitter:description" content="Hot Takes in Cold Blood">
+<meta name="twitter:image" content="https://alexandervossen.github.io/blog/posts/files/ponder.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -123,7 +143,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#placeholder" id="toc-placeholder" class="nav-link active" data-scroll-target="#placeholder">Placeholder</a></li>
+  <li><a href="#mind-over-model" id="toc-mind-over-model" class="nav-link active" data-scroll-target="#mind-over-model">Mind over Model</a></li>
+  <li><a href="#progress-is-real-but-so-are-its-blind-spots" id="toc-progress-is-real-but-so-are-its-blind-spots" class="nav-link" data-scroll-target="#progress-is-real-but-so-are-its-blind-spots">Progress Is Real… But So Are Its Blind Spots</a></li>
+  <li><a href="#when-methods-turn-into-fashion-accessories" id="toc-when-methods-turn-into-fashion-accessories" class="nav-link" data-scroll-target="#when-methods-turn-into-fashion-accessories">When Methods Turn Into Fashion Accessories</a></li>
+  <li><a href="#so-where-does-this-leave-us" id="toc-so-where-does-this-leave-us" class="nav-link" data-scroll-target="#so-where-does-this-leave-us">So Where Does This Leave Us?</a></li>
   </ul>
 </nav>
     </div>
@@ -132,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Placeholder</h1>
+<h1 class="title">Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">methods</div>
     <div class="quarto-category">opinions</div>
@@ -142,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Placeholder
+    Hot Takes in Cold Blood
   </div>
 </div>
 
@@ -159,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 11, 2025</p>
+      <p class="date">November 19, 2025</p>
     </div>
   </div>
   
@@ -171,13 +194,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="placeholder" class="level2">
-<h2 class="anchored" data-anchor-id="placeholder">Placeholder</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/ponder.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figcaption>Photo by <a href="https://unsplash.com/de/@markuswinkler?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Winkler</a> on&nbsp;<a href="https://unsplash.com/de/fotos/schwarzer-flachbildfernseher-mit-gelben-emojis-eingeschaltet-wpOa2i3MUrY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></figcaption>
+</figure>
+</div>
+<section id="mind-over-model" class="level2">
+<h2 class="anchored" data-anchor-id="mind-over-model">Mind over Model</h2>
+<p>A few weeks ago, I found myself in a conversation about whether a particular research question could “only” be answered with a DAG. Not <em>a</em> DAG in the everyday sense, but a DAG™, the modern badge of causal purity. Someone confidently declared: <em>“Well, only a DAG can answer this.” (Find out more about DAGs <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">here</a>).</em></p>
+<p>And there I was again, wondering how researchers have managed to answer questions for the last decades without collapsing into a puddle of epistemological despair. Surely some knowledge must have slipped through the cracks before? That’s really why I’ve grown skeptical of methodological trends: Every few years a new method arrives promising that everything we did before was wrong — until next year, when another method arrives to declare that one wrong too.</p>
+<p>Meanwhile, when you listen to the genuinely good statisticians and econometricians — the ones who have been quietly producing excellent work for decades — they almost never talk that way. They don’t say: “This method is wrong.” They say: “If you use this method, you are making the following assumptions.” And that distinction matters. If your software converges and produces results, the model isn’t “wrong.” It runs. The real question is: What inferences are you allowed to draw, given the assumptions you just bought into?</p>
+<p>No method is exempt from this. Every method has assumptions. And, as Pedro Sant’anna puts it beautifully in his <a href="https://psantanna.com/DiD/01_Introduction.pdf">lecture slides</a>: &nbsp;Our job as researchers is to assess the pros and cons of each method in their ability to answer the questions we (and the business/policy makers/stakeholders) care about.</p>
+</section>
+<section id="progress-is-real-but-so-are-its-blind-spots" class="level2">
+<h2 class="anchored" data-anchor-id="progress-is-real-but-so-are-its-blind-spots">Progress Is Real… But So Are Its Blind Spots</h2>
+<p>Let me be clear: I’m not anti-progress. We <em>do</em> have better tools, better computation, sharper theory. But that doesn’t automatically make our research “better.” Replications haven’t suddenly skyrocketed because we switched from SPSS to Python. Publication bias is alive and thriving (now with prettier tables). And many of the simulation studies used to validate new methods model worlds so unrealistically pristine they make children’s television look gritty.</p>
+<p>So yes, progress is real — but over the years, I’ve developed a real appreciation for a more <em>measured</em> (pun intended) approach to improving our tools, rather than the bold promise of the next big thing that supposedly “solves it all.” Nothing has reminded me of this more vividly than <span class="citation" data-cites="BuenoDeMesquitaFowler2021ThinkingClearly">Bueno de Mesquita and Fowler (<a href="#ref-BuenoDeMesquitaFowler2021ThinkingClearly" role="doc-biblioref">2021</a>)</span> <em>Thinking Clearly with Data</em>, in which they which presents their beautifully simple “favorite equation”:</p>
+<blockquote class="blockquote">
+<p><strong>Estimate = Estimand + Bias + Noise</strong></p>
+</blockquote>
+<p>The estimand is the thing you <em>actually</em> want to know — the true effect or quantity of interest. The estimate is what you end up getting. Bias is systematic distortion between the two. Noise is everything random that refuses to behave.</p>
+<p>We never observe the estimand directly. We only approximate it, and every approximation drags bias and noise along like barnacles on a ship. No shiny causal ML method, no DAG, no deep neural net can wash these off. At best, they rearrange the barnacles. If you don’t know what your estimand really is, no model — old or new — will save you.</p>
+</section>
+<section id="when-methods-turn-into-fashion-accessories" class="level2">
+<h2 class="anchored" data-anchor-id="when-methods-turn-into-fashion-accessories">When Methods Turn Into Fashion Accessories</h2>
+<p>This is where the trend-chasing bothers me. Every year brings another wave of implied moral judgment: Regression? Naive. Fixed effects? Cute. Matching? Outdated. Anything invented before your PhD coursework? Suspicious.</p>
+<p>I like machine learning. I use it. I teach it. I sometimes even enjoy it. But there is a difference between liking a tool and thinking clearly with it. With a simple regression, I can sit down with ten numbers, compute everything by hand, and understand every step. With many ML methods that clarity vanishes. Defaults take over; optimizers do mysterious things; and if someone pushes me deep enough on intuition, there is a non-zero chance I start drawing vague diagrams on a whiteboard to buy time. That doesn’t make ML bad. It simply means that methods only help thinking if we can reason through them.</p>
+</section>
+<section id="so-where-does-this-leave-us" class="level2">
+<h2 class="anchored" data-anchor-id="so-where-does-this-leave-us">So Where Does This Leave Us?</h2>
+<p>Which brings me back to that “only DAGs can answer this” conversation. The problem isn’t DAGs — DAGs are powerful and elegant when used thoughtfully. The problem is the mindset: the belief that correctness lives in the <em>tool</em> rather than in the clarity of assumptions and the suitability of the design. After a decade of analyzing data, teaching methods, reviewing papers, and staring at margins plots at unholy hours, I’ve learned this much:</p>
+<ul>
+<li><p>Understand your estimand before touching your estimator.</p></li>
+<li><p>Expect bias and noise; they’re loyal companions.</p></li>
+<li><p>Don’t worship statistical trends; use what fits your question.</p></li>
+<li><p>Be wary of anyone who claims there is only one “right” way of doing a certain analysis.</p></li>
+</ul>
+<p>If you want flashy certainty, statistics is the wrong hobby. If you want humble approximations, thoughtful assumptions, and occasional existential crises… welcome aboard - don’t mind the barnacles!</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BuenoDeMesquitaFowler2021ThinkingClearly" class="csl-entry" role="listitem">
+Bueno de Mesquita, Ethan, and Anthony Fowler. 2021. <em>Thinking Clearly with Data: A Guide to Quantitative Reasoning and Analysis</em>. Princeton, NJ: Princeton University Press. <a href="https://press.princeton.edu/books/hardcover/9780691222294/thinking-clearly-with-data">https://press.princeton.edu/books/hardcover/9780691222294/thinking-clearly-with-data</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
