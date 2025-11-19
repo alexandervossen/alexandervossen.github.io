@@ -56,4 +56,4 @@ Which brings me back to that “only DAGs can answer this” conversation. The p
 
 -   Be wary of anyone who claims there is only one "right" way of doing a certain analysis.
 
-If you want flashy certainty, statistics is the wrong hobby. If you want humble approximations, thoughtful assumptions, and occasional existential crises… welcome aboard - just don't mind the barnacles!
+If you want flashy certainty, statistics is the wrong hobby. If you want humble approximations, thoughtful assumptions, and occasional existential crises… welcome aboard - don't mind the barnacles!
