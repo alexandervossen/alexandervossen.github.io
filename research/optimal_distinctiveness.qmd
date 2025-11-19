@@ -1,0 +1,12 @@
+---
+title: "Optimal Distinctiveness"
+image: "../images/od.jpg"
+toc: true
+about:
+  template: jolla
+  image-shape: round
+---
+
+Image credit: Photo by [Mulyadi](https://unsplash.com/@mullyadii?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/white-and-black-robot-toy-dDlvuSKUDZM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
+In this project, my co-authors and I tackle a classic entrepreneurial dilemma: how to be different enough to get noticed, but not so different that people think you’ve lost the plot. This balancing act—*optimal distinctiveness*—is our research playground. We dig into how audiences judge ventures and how the rules change in quirky niche markets and across international borders. Lately, we’re especially obsessed with how this sweet spot shifts over time. Working papers will appear here once they’re presentable (and possibly after they’ve stopped arguing with reviewers). With a few papers under review, we’re cautiously optimistic about sharing good news soon.
