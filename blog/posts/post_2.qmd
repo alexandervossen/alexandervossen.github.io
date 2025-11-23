@@ -20,7 +20,7 @@ format:
 
 A few weeks ago, a reviewer politely reminded me—again—that because my analysis used a “correlational method,” I was not allowed to write that X affects Y. Instead, I was instructed to replace “effect” with “association,” even though nothing in my research design, data, or interpretation had changed. I complied, of course, because picking this battle is rarely worth it. But every time this happens, it makes me wonder: what exactly is gained by swapping a verb when the underlying reasoning remains identical? If [Post #1](https://alexandervossen.github.io/blog/posts/post_1.html) made one thing clear, it’s that methods are not moral categories. They are bundles of assumptions. And yet, somehow, verb-policing has become a minor academic sport.
 
-So here we are, in a world where regressions are treated as morally suspicious, “identification strategies” are considered sacred rituals, and many reviewers genuinely believe that adding a DAG to a paper somehow transforms your inferences from association into Truth™. But methods do not work that way. And ironically, the very causal tools that reviewers invoke rely deeply—and inescapably—on the same correlational structures they tend to dismiss.
+So here we are, in a world where regressions are treated as morally suspicious and many reviewers genuinely believe that adding method X somehow transforms your inferences from association into Truth™. But methods do not work that way. And ironically, the very causal tools that reviewers invoke rely deeply—and inescapably—on the same correlational structures they tend to dismiss.
 
 ## Correlation Is the Brickwork of Causal Inference
 
@@ -32,7 +32,7 @@ Or instrumental variables. The instrument must correlate with the treatment stro
 
 Or matching, which only works if the covariates we observe correlate with selection into treatment strongly enough to balance groups. Otherwise, the resulting matches look good on paper but remain meaningless for inference.
 
-Strip away the jargon and you’ll find that most causal methods are essentially elaborate ways of arranging and exploiting correlations. They’re not “better” because they somehow transcend correlation, but because they make their assumptions more explicit and transparent. And that is a crucial difference—one you can (and should) also aim for when you use a so-called “correlational” method. That’s exactly why the XKCD comic above works so well: vastly different causal stories can produce the same correlational pattern. The comic is funny because it’s true, and uncomfortable because it’s also true for many papers in our field.
+Strip away the jargon and you’ll find that most causal methods are essentially elaborate ways of arranging and exploiting correlations. They’re not “better” because they somehow transcend correlation, but because they make their assumptions more explicit and transparent. And that is a crucial difference—one you can (and should) also aim for when you use a so-called “correlational” method.
 
 ## The Correlational vs. Causal Divide Is Overstated
 
@@ -46,7 +46,7 @@ But binary categories are temptingly easy to enforce. They let reviewers feel pr
 
 This brings me to a broader, more anthropological observation: Reviewer 2 rarely wants clarity; Reviewer 2 wants purity. Purity of method, purity of notation, purity of phrasing. It doesn’t matter that the fundamental identification challenges remain the same. The policing of verbs becomes a stand-in for the policing of assumptions, even though the latter is far more important and far less frequently discussed.
 
-To be clear: strong causal methods are valuable. But slotting in a “proper causal method” does not absolve researchers from thinking clearly about their design, their estimand, or their data. And it definitely doesn’t guarantee that the resulting estimate is “more causal” than what a well-reasoned regression might yield under strong theoretical grounding. Causal inference is not a badge you earn by writing “instrumental variable” in your abstract and certainly by changing one word in your hypothesis. It is a practice of disciplined reasoning. Everything else is branding.
+To be clear: strong causal methods are valuable. But slotting in a “proper causal method” does not absolve researchers from thinking clearly about their design, their estimand, or their data. And it definitely doesn’t guarantee that the resulting estimate is “more causal” than what a well-reasoned regression might yield under strong theoretical grounding. Causal inference is not a badge you earn by writing “instrumental variable” in your abstract and certainly not by changing one word in your hypothesis. It is a practice of disciplined reasoning. Everything else is branding.
 
 ## So Where Does This Leave Us?
 
