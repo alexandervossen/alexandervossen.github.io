@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexander Vossen">
+<meta name="dcterms.date" content="2025-11-24">
+<meta name="description" content="Strong Opinions, Weak Instruments.">
 
-<title>The Accidental Data Scientist</title>
+<title>Causal-ish: On causal inference, correlational scaffolding, and verb policing.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,71 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="The Accidental Data Scientist">
-<meta property="og:description" content="">
-<meta name="twitter:title" content="The Accidental Data Scientist">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Causal-ish: On causal inference, correlational scaffolding, and verb policing.">
+<meta property="og:description" content="Strong Opinions, Weak Instruments.">
+<meta property="og:image" content="https://imgs.xkcd.com/comics/correlation.png">
+<meta name="twitter:title" content="Causal-ish: On causal inference, correlational scaffolding, and verb policing.">
+<meta name="twitter:description" content="Strong Opinions, Weak Instruments.">
+<meta name="twitter:image" content="https://imgs.xkcd.com/comics/correlation.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -147,19 +92,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news.html"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
 </ul>
@@ -174,21 +119,53 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="grumpy-statistics">grumpy-statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="methods">methods <span class="quarto-category-count">(2)</span></div><div class="category" data-category="opinions">opinions <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#mind-your-language-young-man" id="toc-mind-your-language-young-man" class="nav-link active" data-scroll-target="#mind-your-language-young-man">Mind Your Language, Young Man!</a></li>
+  <li><a href="#correlation-is-the-brickwork-of-causal-inference" id="toc-correlation-is-the-brickwork-of-causal-inference" class="nav-link" data-scroll-target="#correlation-is-the-brickwork-of-causal-inference">Correlation Is the Brickwork of Causal Inference</a></li>
+  <li><a href="#the-correlational-vs.-causal-divide-is-overstated" id="toc-the-correlational-vs.-causal-divide-is-overstated" class="nav-link" data-scroll-target="#the-correlational-vs.-causal-divide-is-overstated">The Correlational vs.&nbsp;Causal Divide Is Overstated</a></li>
+  <li><a href="#reviewer-2-and-the-art-of-method-fetishism" id="toc-reviewer-2-and-the-art-of-method-fetishism" class="nav-link" data-scroll-target="#reviewer-2-and-the-art-of-method-fetishism">Reviewer 2 and the Art of Method-Fetishism</a></li>
+  <li><a href="#so-where-does-this-leave-us" id="toc-so-where-does-this-leave-us" class="nav-link" data-scroll-target="#so-where-does-this-leave-us">So Where Does This Leave Us?</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Accidental Data Scientist</h1>
-</div>
+<h1 class="title">Causal-ish: On causal inference, correlational scaffolding, and verb policing.</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">methods</div>
+    <div class="quarto-category">opinions</div>
+    <div class="quarto-category">grumpy-statistics</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Strong Opinions, Weak Instruments.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexander Vossen </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 24, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -198,97 +175,49 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.</p>
-<p>This blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. I’m happy to help you get going — feel free to disagree, of course. Yes, I’m occasionally wrong, because being a scientist means rarely being absolutely certain but always being eager to learn when mistaken.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figcaption>Comic: “Correlation” by Randall Munroe, <a href="https://xkcd.com/552">xkcd.com</a> — licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC BY-NC 2.5</a>.</figcaption>
+</figure>
+</div>
+<section id="mind-your-language-young-man" class="level2">
+<h2 class="anchored" data-anchor-id="mind-your-language-young-man">Mind Your Language, Young Man!</h2>
+<p>A few weeks ago, a reviewer politely reminded me—again—that because my analysis used a “correlational method,” I was not allowed to write that X affects Y. Instead, I was instructed to replace “effect” with “association,” even though nothing in my research design, data, or interpretation had changed. I complied, of course, because picking this battle is rarely worth it. But every time this happens, it makes me wonder: what exactly is gained by swapping a verb when the underlying reasoning remains identical? If Post #1 made one thing clear, it’s that methods are not moral categories. They are bundles of assumptions. And yet, somehow, verb-policing has become a minor academic sport.</p>
+<p>So here we are, in a world where regressions are treated as morally suspicious, “identification strategies” are considered sacred rituals, and many reviewers genuinely believe that adding a DAG to a paper somehow transforms your inferences from association into Truth™. But methods do not work that way. And ironically, the very causal tools that reviewers invoke rely deeply—and inescapably—on the same correlational structures they tend to dismiss.</p>
+</section>
+<section id="correlation-is-the-brickwork-of-causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-is-the-brickwork-of-causal-inference">Correlation Is the Brickwork of Causal Inference</h2>
+<p>One of the most useful insights from Thinking Clearly with Data is the reminder that almost everything we infer rests on the same simple ingredients: variation, patterns, and structured comparisons. In other words: correlations.</p>
+<p>Take difference-in-differences. The entire method hinges on a correlational pattern—the parallel trends assumption. We hope that the treated and control units would have moved “in parallel” in the absence of treatment; in other words, their outcomes must correlate in a particular way over time. No parallelism, no DiD. And no amount of causal language can save you.</p>
+<p>Or instrumental variables. The instrument must correlate with the treatment strongly enough to move it, and crucially, must not correlate with the error term. The whole edifice collapses if those correlations don’t behave.</p>
+<p>Or matching, which only works if the covariates we observe correlate with selection into treatment strongly enough to balance groups. Otherwise, the resulting matches look good on paper but remain meaningless for inference.</p>
+<p>Strip away the jargon and you’ll find that most causal methods are essentially elaborate ways of arranging and exploiting correlations. They’re not “better” because they somehow transcend correlation, but because they make their assumptions more explicit and transparent. And that is a crucial difference—one you can (and should) also aim for when you use a so-called “correlational” method. That’s exactly why the XKCD comic above works so well: vastly different causal stories can produce the same correlational pattern. The comic is funny because it’s true, and uncomfortable because it’s also true for many papers in our field.</p>
+</section>
+<section id="the-correlational-vs.-causal-divide-is-overstated" class="level2">
+<h2 class="anchored" data-anchor-id="the-correlational-vs.-causal-divide-is-overstated">The Correlational vs.&nbsp;Causal Divide Is Overstated</h2>
+<p>The notion that correlational methods only allow us to “describe associations,” while causal methods alone permit us to “speak of effects,” is a very recent—and very convenient—fiction. Nobody actually behaves like this in practice. How many papers with fixed effects or regressions truly restrict themselves to: “X is positively correlated with Y in this sample under these controls”? Very few. We all know what authors intend. We know what readers infer. We know which implications people draw.</p>
+<p>The difference lies not in whether the method is correlational or causal, but which assumptions must hold for the causal interpretation to be credible. And those assumptions vary continuously, not categorically. Causal-ish work exists on a spectrum, not in a binary.</p>
+<p>But binary categories are temptingly easy to enforce. They let reviewers feel principled, even when the distinction is more rhetorical than epistemic. Telling someone to say “associated with” instead of “affects” is often little more than grammatical window dressing—a ritual nod to methodological orthodoxy, rather than a substantive improvement in reasoning.</p>
+</section>
+<section id="reviewer-2-and-the-art-of-method-fetishism" class="level2">
+<h2 class="anchored" data-anchor-id="reviewer-2-and-the-art-of-method-fetishism">Reviewer 2 and the Art of Method-Fetishism</h2>
+<p>This brings me to a broader, more anthropological observation: Reviewer 2 rarely wants clarity; Reviewer 2 wants purity. Purity of method, purity of notation, purity of phrasing. It doesn’t matter that the fundamental identification challenges remain the same. The policing of verbs becomes a stand-in for the policing of assumptions, even though the latter is far more important and far less frequently discussed.</p>
+<p>To be clear: strong causal methods are valuable. But slotting in a “proper causal method” does not absolve researchers from thinking clearly about their design, their estimand, or their data. And it definitely doesn’t guarantee that the resulting estimate is “more causal” than what a well-reasoned regression might yield under strong theoretical grounding. Causal inference is not a badge you earn by writing “instrumental variable” in your abstract and certainly by chaning one word in your hypothesis. It is a practice of disciplined reasoning. Everything else is branding.</p>
+</section>
+<section id="so-where-does-this-leave-us" class="level2">
+<h2 class="anchored" data-anchor-id="so-where-does-this-leave-us">So Where Does This Leave Us?</h2>
+<p>Which brings us back to that moment where I obediently changed “effect” to “association,” knowing full well that nothing important had changed. My theory remained the same. My identification argument remained the same. My design remained the same. The causal logic remained the same. Only the word changed. And that is precisely the problem. The distinction between correlational and causal methods is meaningful only when paired with explicit assumptions, transparent reasoning, and a clear understanding of what your design can and cannot claim. Without that, it becomes a ritual of vocabulary—an aesthetic, not an epistemology.</p>
+<p>So here is my modest proposal for a causal-ish sanity check:</p>
+<p>- If you are going to police my verbs, then police my assumptions.</p>
+<p>- If you are going to correct my language, then correct my logic.</p>
+<p>- And if you truly believe that only certain methods “allow” causal statements, then show me the list. I’ve been waiting years for someone to publish it.</p>
+<p>Until then, we should probably all admit that most empirical work is causal-ish: grounded in theory, informed by data, driven by assumptions, and perpetually imperfect. And if you want iron-clad causality, you are in the wrong discipline. If you want thoughtful approximations, disciplined reasoning, and reviewers correcting your choice of verb… welcome back aboard.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763938800000" data-listing-file-modified-sort="1763927266831" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_2.html" class="no-external"></a></p><a href="./blog/posts/post_2.html" class="no-external">
-<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_2.html" class="no-external">Causal-ish: On causal inference, correlational scaffolding, and verb policing.</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_2.html" class="no-external">Strong Opinions, Weak Instruments.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_2.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763506800000" data-listing-file-modified-sort="1763926802509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="803">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_1.html" class="no-external"></a></p><a href="./blog/posts/post_1.html" class="no-external">
-<p><img src="./blog/posts/files/ponder.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_1.html" class="no-external">Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_1.html" class="no-external">Hot Takes in Cold Blood</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_1.html" class="no-external">
-<div class="listing-date">
-Nov 19, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -685,12 +614,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./privacy.html">
+    <a class="nav-link" href="../../privacy.html">
 <p>Privacy Policy/Datenschutz</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./imprint.html">
+    <a class="nav-link" href="../../imprint.html">
 <p>Imprint/Impressum</p>
 </a>
   </li>  

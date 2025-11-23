@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "The Accidental Data Scientist",
     "section": "",
-    "text": "Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.\nThis blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. I’m happy to help you get going — feel free to disagree, of course. Yes, I’m occasionally wrong, because being a scientist means rarely being absolutely certain but always being eager to learn when mistaken.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWhy I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)\n\n\n\n\n\n\nmethods\n\n\nopinions\n\n\ngrumpy-statistics\n\n\n\nHot Takes in Cold Blood\n\n\n\n\n\nNov 19, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.\nThis blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. I’m happy to help you get going — feel free to disagree, of course. Yes, I’m occasionally wrong, because being a scientist means rarely being absolutely certain but always being eager to learn when mistaken.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCausal-ish: On causal inference, correlational scaffolding, and verb policing.\n\n\n\n\n\n\nmethods\n\n\nopinions\n\n\ngrumpy-statistics\n\n\n\nStrong Opinions, Weak Instruments.\n\n\n\n\n\nNov 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nWhy I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)\n\n\n\n\n\n\nmethods\n\n\nopinions\n\n\ngrumpy-statistics\n\n\n\nHot Takes in Cold Blood\n\n\n\n\n\nNov 19, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post_1.html",
@@ -42,34 +42,6 @@
     "text": "So Where Does This Leave Us?\nWhich brings me back to that “only DAGs can answer this” conversation. The problem isn’t DAGs — DAGs are powerful and elegant when used thoughtfully. The problem is the mindset: the belief that correctness lives in the tool rather than in the clarity of assumptions and the suitability of the design. After a decade of analyzing data, teaching methods, reviewing papers, and staring at margins plots at unholy hours, I’ve learned this much:\n\nUnderstand your estimand before touching your estimator.\nExpect bias and noise; they’re loyal companions.\nDon’t worship statistical trends; use what fits your question.\nBe wary of anyone who claims there is only one “right” way of doing a certain analysis.\n\nIf you want flashy certainty, statistics is the wrong hobby. If you want humble approximations, thoughtful assumptions, and occasional existential crises… welcome aboard - don’t mind the barnacles!"
   },
   {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News",
-    "section": "",
-    "text": "Test"
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "Welcome to my research section—home to thrilling adventures in statistical models, obscure theoretical debates, and tables so wide you’ll need a second monitor just to scroll through them. Under this section, I’ll be tirelessly working to help you drift off to sleep with some of my most “exciting” academic findings. Think of it as a free, open-access alternative to chamomile tea: carefully crafted to satisfy the intellectually curious, yet perfectly capable of lulling you into a peaceful nap. Enjoy and now relax…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimal Distinctiveness\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "research/optimal_distinctiveness.html",
-    "href": "research/optimal_distinctiveness.html",
-    "title": "Optimal Distinctiveness",
-    "section": "",
-    "text": "Image credit: Photo by Mulyadi on Unsplash\nIn this project, my co-authors and I tackle a classic entrepreneurial dilemma: how to be different enough to get noticed, but not so different that people think you’ve lost the plot. This balancing act—optimal distinctiveness—is our research playground. We dig into how audiences judge ventures and how the rules change in quirky niche markets and across international borders. Lately, we’re especially obsessed with how this sweet spot shifts over time. Working papers will appear here once they’re presentable (and possibly after they’ve stopped arguing with reviewers). With a few papers under review, we’re cautiously optimistic about sharing good news soon."
-  },
-  {
-    "objectID": "imprint.html",
-    "href": "imprint.html",
-    "title": "Imprint/Impressum",
-    "section": "",
-    "text": "Impressum\nAngaben gemäß § 5 TMG \nInhaltlich verantwortlich für den Inhalt der Website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nKontakt \na.vossen@tilburguniversity.edu\nHaftung für Links\nTrotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten uns rechtswidrige Inhalte auf verlinkten Seiten bekannt werden, entfernen wir diese Links unverzüglich.\nImprint\nStatement according to § 5 TMG \nResponsible for the content of this website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nContact \na.vossen@tilburguniversity.edu\nLiability for Links\nDespite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content. Should we become aware of any illegal content on linked pages, we will remove these links immediately."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Alexander Vossen",
@@ -89,6 +61,76 @@
     "title": "Alexander Vossen",
     "section": "How to find me",
     "text": "How to find me\nCome visit me at our lovely JADS campus in Den Bosch!\nIf you don’t like what you read here, feel free to show up in person and file your complaints.\nWe’re just a five-minute stroll from the central station — long enough to reconsider your opinions, but short enough not to change your mind."
+  },
+  {
+    "objectID": "imprint.html",
+    "href": "imprint.html",
+    "title": "Imprint/Impressum",
+    "section": "",
+    "text": "Impressum\nAngaben gemäß § 5 TMG \nInhaltlich verantwortlich für den Inhalt der Website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nKontakt \na.vossen@tilburguniversity.edu\nHaftung für Links\nTrotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten uns rechtswidrige Inhalte auf verlinkten Seiten bekannt werden, entfernen wir diese Links unverzüglich.\nImprint\nStatement according to § 5 TMG \nResponsible for the content of this website:\nAlexander Vossen \nTilburg University \nJheronimus Academy of Data Science (JADS)\nSt. Janssingel 92 \n5211 DA ’s-Hertogenbosch \nThe Netherlands \nContact \na.vossen@tilburguniversity.edu\nLiability for Links\nDespite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content. Should we become aware of any illegal content on linked pages, we will remove these links immediately."
+  },
+  {
+    "objectID": "research/optimal_distinctiveness.html",
+    "href": "research/optimal_distinctiveness.html",
+    "title": "Optimal Distinctiveness",
+    "section": "",
+    "text": "Image credit: Photo by Mulyadi on Unsplash\nIn this project, my co-authors and I tackle a classic entrepreneurial dilemma: how to be different enough to get noticed, but not so different that people think you’ve lost the plot. This balancing act—optimal distinctiveness—is our research playground. We dig into how audiences judge ventures and how the rules change in quirky niche markets and across international borders. Lately, we’re especially obsessed with how this sweet spot shifts over time. Working papers will appear here once they’re presentable (and possibly after they’ve stopped arguing with reviewers). With a few papers under review, we’re cautiously optimistic about sharing good news soon."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Welcome to my research section—home to thrilling adventures in statistical models, obscure theoretical debates, and tables so wide you’ll need a second monitor just to scroll through them. Under this section, I’ll be tirelessly working to help you drift off to sleep with some of my most “exciting” academic findings. Think of it as a free, open-access alternative to chamomile tea: carefully crafted to satisfy the intellectually curious, yet perfectly capable of lulling you into a peaceful nap. Enjoy and now relax…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimal Distinctiveness\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Test"
+  },
+  {
+    "objectID": "blog/posts/post_2.html",
+    "href": "blog/posts/post_2.html",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "",
+    "text": "Comic: “Correlation” by Randall Munroe, xkcd.com — licensed under CC BY-NC 2.5."
+  },
+  {
+    "objectID": "blog/posts/post_2.html#mind-your-language-young-man",
+    "href": "blog/posts/post_2.html#mind-your-language-young-man",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "Mind Your Language, Young Man!",
+    "text": "Mind Your Language, Young Man!\nA few weeks ago, a reviewer politely reminded me—again—that because my analysis used a “correlational method,” I was not allowed to write that X affects Y. Instead, I was instructed to replace “effect” with “association,” even though nothing in my research design, data, or interpretation had changed. I complied, of course, because picking this battle is rarely worth it. But every time this happens, it makes me wonder: what exactly is gained by swapping a verb when the underlying reasoning remains identical? If Post #1 made one thing clear, it’s that methods are not moral categories. They are bundles of assumptions. And yet, somehow, verb-policing has become a minor academic sport.\nSo here we are, in a world where regressions are treated as morally suspicious, “identification strategies” are considered sacred rituals, and many reviewers genuinely believe that adding a DAG to a paper somehow transforms your inferences from association into Truth™. But methods do not work that way. And ironically, the very causal tools that reviewers invoke rely deeply—and inescapably—on the same correlational structures they tend to dismiss."
+  },
+  {
+    "objectID": "blog/posts/post_2.html#correlation-is-the-brickwork-of-causal-inference",
+    "href": "blog/posts/post_2.html#correlation-is-the-brickwork-of-causal-inference",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "Correlation Is the Brickwork of Causal Inference",
+    "text": "Correlation Is the Brickwork of Causal Inference\nOne of the most useful insights from Thinking Clearly with Data is the reminder that almost everything we infer rests on the same simple ingredients: variation, patterns, and structured comparisons. In other words: correlations.\nTake difference-in-differences. The entire method hinges on a correlational pattern—the parallel trends assumption. We hope that the treated and control units would have moved “in parallel” in the absence of treatment; in other words, their outcomes must correlate in a particular way over time. No parallelism, no DiD. And no amount of causal language can save you.\nOr instrumental variables. The instrument must correlate with the treatment strongly enough to move it, and crucially, must not correlate with the error term. The whole edifice collapses if those correlations don’t behave.\nOr matching, which only works if the covariates we observe correlate with selection into treatment strongly enough to balance groups. Otherwise, the resulting matches look good on paper but remain meaningless for inference.\nStrip away the jargon and you’ll find that most causal methods are essentially elaborate ways of arranging and exploiting correlations. They’re not “better” because they somehow transcend correlation, but because they make their assumptions more explicit and transparent. And that is a crucial difference—one you can (and should) also aim for when you use a so-called “correlational” method. That’s exactly why the XKCD comic above works so well: vastly different causal stories can produce the same correlational pattern. The comic is funny because it’s true, and uncomfortable because it’s also true for many papers in our field."
+  },
+  {
+    "objectID": "blog/posts/post_2.html#the-correlational-vs.-causal-divide-is-overstated",
+    "href": "blog/posts/post_2.html#the-correlational-vs.-causal-divide-is-overstated",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "The Correlational vs. Causal Divide Is Overstated",
+    "text": "The Correlational vs. Causal Divide Is Overstated\nThe notion that correlational methods only allow us to “describe associations,” while causal methods alone permit us to “speak of effects,” is a very recent—and very convenient—fiction. Nobody actually behaves like this in practice. How many papers with fixed effects or regressions truly restrict themselves to: “X is positively correlated with Y in this sample under these controls”? Very few. We all know what authors intend. We know what readers infer. We know which implications people draw.\nThe difference lies not in whether the method is correlational or causal, but which assumptions must hold for the causal interpretation to be credible. And those assumptions vary continuously, not categorically. Causal-ish work exists on a spectrum, not in a binary.\nBut binary categories are temptingly easy to enforce. They let reviewers feel principled, even when the distinction is more rhetorical than epistemic. Telling someone to say “associated with” instead of “affects” is often little more than grammatical window dressing—a ritual nod to methodological orthodoxy, rather than a substantive improvement in reasoning."
+  },
+  {
+    "objectID": "blog/posts/post_2.html#reviewer-2-and-the-art-of-method-fetishism",
+    "href": "blog/posts/post_2.html#reviewer-2-and-the-art-of-method-fetishism",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "Reviewer 2 and the Art of Method-Fetishism",
+    "text": "Reviewer 2 and the Art of Method-Fetishism\nThis brings me to a broader, more anthropological observation: Reviewer 2 rarely wants clarity; Reviewer 2 wants purity. Purity of method, purity of notation, purity of phrasing. It doesn’t matter that the fundamental identification challenges remain the same. The policing of verbs becomes a stand-in for the policing of assumptions, even though the latter is far more important and far less frequently discussed.\nTo be clear: strong causal methods are valuable. But slotting in a “proper causal method” does not absolve researchers from thinking clearly about their design, their estimand, or their data. And it definitely doesn’t guarantee that the resulting estimate is “more causal” than what a well-reasoned regression might yield under strong theoretical grounding. Causal inference is not a badge you earn by writing “instrumental variable” in your abstract and certainly by chaning one word in your hypothesis. It is a practice of disciplined reasoning. Everything else is branding."
+  },
+  {
+    "objectID": "blog/posts/post_2.html#so-where-does-this-leave-us",
+    "href": "blog/posts/post_2.html#so-where-does-this-leave-us",
+    "title": "Causal-ish: On causal inference, correlational scaffolding, and verb policing.",
+    "section": "So Where Does This Leave Us?",
+    "text": "So Where Does This Leave Us?\nWhich brings us back to that moment where I obediently changed “effect” to “association,” knowing full well that nothing important had changed. My theory remained the same. My identification argument remained the same. My design remained the same. The causal logic remained the same. Only the word changed. And that is precisely the problem. The distinction between correlational and causal methods is meaningful only when paired with explicit assumptions, transparent reasoning, and a clear understanding of what your design can and cannot claim. Without that, it becomes a ritual of vocabulary—an aesthetic, not an epistemology.\nSo here is my modest proposal for a causal-ish sanity check:\n- If you are going to police my verbs, then police my assumptions.\n- If you are going to correct my language, then correct my logic.\n- And if you truly believe that only certain methods “allow” causal statements, then show me the list. I’ve been waiting years for someone to publish it.\nUntil then, we should probably all admit that most empirical work is causal-ish: grounded in theory, informed by data, driven by assumptions, and perpetually imperfect. And if you want iron-clad causality, you are in the wrong discipline. If you want thoughtful approximations, disciplined reasoning, and reviewers correcting your choice of verb… welcome back aboard."
   },
   {
     "objectID": "privacy.html",
