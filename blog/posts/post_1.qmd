@@ -2,7 +2,7 @@
 title: "Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)"
 description: "Hot Takes in Cold Blood"
 author: "Alexander Vossen"
-date: today
+date: "November 19, 2025"
 categories: [methods, opinions, grumpy-statistics]
 bibliography: references.bib
 image: "files/ponder.jpg"
