@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexander Vossen">
+<meta name="dcterms.date" content="2025-12-12">
+<meta name="description" content="Strong Opinions, Weak Instruments.">
 
-<title>The Accidental Data Scientist</title>
+<title>Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,71 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="The Accidental Data Scientist">
-<meta property="og:description" content="">
-<meta name="twitter:title" content="The Accidental Data Scientist">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling">
+<meta property="og:description" content="Strong Opinions, Weak Instruments.">
+<meta property="og:image" content="https://alexandervossen.github.io/blog/posts/files/d_d.jpg">
+<meta name="twitter:title" content="Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling">
+<meta name="twitter:description" content="Strong Opinions, Weak Instruments.">
+<meta name="twitter:image" content="https://alexandervossen.github.io/blog/posts/files/d_d.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -147,19 +92,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news.html"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
 </ul>
@@ -174,21 +119,53 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="academic life">academic life <span class="quarto-category-count">(1)</span></div><div class="category" data-category="grumpy-statistics">grumpy-statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="methods">methods <span class="quarto-category-count">(2)</span></div><div class="category" data-category="opinions">opinions <span class="quarto-category-count">(3)</span></div><div class="category" data-category="seminars">seminars <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#seminars-and-the-peak-of-mount-stupid" id="toc-seminars-and-the-peak-of-mount-stupid" class="nav-link active" data-scroll-target="#seminars-and-the-peak-of-mount-stupid">Seminars and the Peak of Mount Stupid</a></li>
+  <li><a href="#enter-dungeons-dragons-and-deans" id="toc-enter-dungeons-dragons-and-deans" class="nav-link" data-scroll-target="#enter-dungeons-dragons-and-deans">Enter Dungeons &amp; Dragons (and Deans)</a></li>
+  <li><a href="#levels-proficiency-and-academic-intuition" id="toc-levels-proficiency-and-academic-intuition" class="nav-link" data-scroll-target="#levels-proficiency-and-academic-intuition">Levels, Proficiency, and Academic Intuition</a></li>
+  <li><a href="#wizards-fighters-rogues-and-bards" id="toc-wizards-fighters-rogues-and-bards" class="nav-link" data-scroll-target="#wizards-fighters-rogues-and-bards">Wizards, Fighters, Rogues… and Bards</a></li>
+  <li><a href="#the-moral-of-the-story" id="toc-the-moral-of-the-story" class="nav-link" data-scroll-target="#the-moral-of-the-story">The Moral of the Story</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Accidental Data Scientist</h1>
-</div>
+<h1 class="title">Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">academic life</div>
+    <div class="quarto-category">opinions</div>
+    <div class="quarto-category">seminars</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Strong Opinions, Weak Instruments.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexander Vossen </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -198,133 +175,41 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.</p>
-<p>This blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. I’m happy to help you get going — feel free to disagree, of course. Yes, I’m occasionally wrong, because being a scientist means rarely being absolutely certain but always being eager to learn when mistaken.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/d_d.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figcaption>Image by <a href="https://unsplash.com/de/@_staticvoid">Lucas Santos</a> on <a href="https://unsplash.com/de/fotos/grune-und-schwarze-wurfel-auf-braunem-holztisch-XIIsv6AshJY">Unsplash</a></figcaption>
+</figure>
+</div>
+<section id="seminars-and-the-peak-of-mount-stupid" class="level2">
+<h2 class="anchored" data-anchor-id="seminars-and-the-peak-of-mount-stupid">Seminars and the Peak of Mount Stupid</h2>
+<p>While the first two posts in this series focused on methods and assumptions, this one is about academic life, especially for PhD students. A little while ago, a PhD student told me, with full confidence, “I don’t need to attend this social-science seminar. I have a computer science degree—what could I possibly learn?” Every time I hear this, I think: Ah yes, year two of the PhD—the scenic hike up to the Peak of Mount Stupid. It’s that stage where competence is still catching up to confidence and where people begin to believe that anything outside their immediate niche is optional. And yet, skipping seminars is one of the very few genuine no-go’s in academia. If there is a seminar, you go. I was in one last week; I will be in two this week. Not because attendance magically makes you a better researcher (I wish), but because seminars are one of the rare places where you witness how other people actually think.</p>
+<p>Seminars are where you see how someone structures an argument, justifies a design, recovers when a result misbehaves, handles skepticism, or occasionally pulls off something surprisingly elegant with a design that looks questionable on paper. They are where you absorb patterns of reasoning, not just content. That is what compounds over time. The belief that you “can’t learn anything” from someone outside your field is not confidence—it is inexperience disguised as certainty.</p>
+</section>
+<section id="enter-dungeons-dragons-and-deans" class="level2">
+<h2 class="anchored" data-anchor-id="enter-dungeons-dragons-and-deans">Enter Dungeons &amp; Dragons (and Deans)</h2>
+<p>And because a lot of today’s PhD students (and, frankly, their supervisors) grew up on games and genre fiction, I find it oddly fitting to frame this in terms of Dungeons &amp; Dragons. Thanks to Stranger Things, D&amp;D is back in mainstream culture anyway, and the analogy is uncomfortably accurate: academia really does resemble one long, chaotic campaign. Seminars are side-quests, senior scholars are high-level characters with intimidating proficiency bonuses, and Deans… well, Deans are dragons: ancient, inscrutable, and slightly enigmatic, sitting on enormous hoards of institutional wealth, occasionally handing out quests that can dramatically alter your trajectory, breathing fire when provoked, and always scheming in the background—less focused on any single character sheet and more on keeping the whole campaign world from falling apart.</p>
+</section>
+<section id="levels-proficiency-and-academic-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="levels-proficiency-and-academic-intuition">Levels, Proficiency, and Academic Intuition</h2>
+<p>In D&amp;D, your character has a class and a level, which indicate what they are good at and how much experience they’ve accumulated. Whenever you attempt something uncertain—persuading an NPC, recalling obscure lore, picking a lock—you roll a twenty-sided die and add bonuses. The key one is the proficiency bonus, which grows with level and applies across many different skills. The higher your level, the more reliably you succeed, even in areas where you’re not formally specialized. A level-18 bard can often outperform a level-3 wizard on a lore check—yes, even the wizard’s favorite skill—because the bard has simply rolled the dice more often.</p>
+<p>Translated into academia, this explains why a senior scholar can wander into your talk, listen for ten minutes, and calmly point out a conceptual flaw you never saw coming. It’s not magic. It’s the +6 proficiency bonus in “General Academic Intuition,” earned through hundreds of talks, thousands of papers, countless failures, and even more rejections. You don’t get that bonus by staying home.</p>
+</section>
+<section id="wizards-fighters-rogues-and-bards" class="level2">
+<h2 class="anchored" data-anchor-id="wizards-fighters-rogues-and-bards">Wizards, Fighters, Rogues… and Bards</h2>
+<p>If you map academics to D&amp;D classes, the parallels become hard to unsee. Some are wizards—brilliant, specialized, occasionally incomprehensible. Some are fighters—relentless, methodical, and frighteningly productive. Some are rogues—uncannily good at spotting weaknesses in arguments or loopholes in identification strategies. Some are clerics—the quiet backbone of departments who keep programs, supervision, and morale from falling apart. And some of us are bards. I very much consider myself one of them: someone who knows a little about a lot, can improvise across topics, and relies on charisma, performance skills, and self-deprecating humour far more often than on deep lore or perfectly memorized spellbooks. None of these classes is superior. What really differentiates them is not class, but level.</p>
+<p>In every RPG, ignoring side-quests means that sooner or later you run into a boss you simply cannot beat because you are under-leveled. The same is true for a PhD. You can focus entirely on your dissertation, avoid everything outside your main quest line, and feel very efficient—right up until you face a challenge (a conceptual critique, a talk, a reviewer) that you are not leveled enough to handle. Seminars are where you quietly accumulate the proficiency bonus you will one day rely on without even noticing it.</p>
+</section>
+<section id="the-moral-of-the-story" class="level2">
+<h2 class="anchored" data-anchor-id="the-moral-of-the-story">The Moral of the Story</h2>
+<p>Which brings us back to the student who “couldn’t possibly learn anything” from a seminar. In D&amp;D terms, that is like refusing XP because it comes from the wrong creature type. In academic terms, it is a reliable indicator of someone still in the early levels, not yet aware of how much more there is to become good at.</p>
+<p>So the moral of the story is simple: go to the seminars. Treat them like side-quests. Treat them as opportunities to gain the experience points you don’t yet realise you need. One day, when you roll your metaphorical d20 in front of a room full of people and hope your argument holds, you will be very grateful for every point of proficiency bonus you picked up along the way.</p>
+<p>May your seminars be worthwhile, your XP bar steadily fill, and your encounters with Deans and dragons be memorable, survivable, and only occasionally on fire.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="academic life,opinions,seminars" data-listing-date-sort="1765494000000" data-listing-file-modified-sort="1765455288905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="902">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_3.html" class="no-external"></a></p><a href="./blog/posts/post_3.html" class="no-external">
-<p><img src="./blog/posts/files/d_d.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_3.html" class="no-external">Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('academic life'); return false;">
-academic life
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('seminars'); return false;">
-seminars
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_3.html" class="no-external">Strong Opinions, Weak Instruments.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_3.html" class="no-external">
-<div class="listing-date">
-Dec 12, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763938800000" data-listing-file-modified-sort="1763928721620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_2.html" class="no-external"></a></p><a href="./blog/posts/post_2.html" class="no-external">
-<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_2.html" class="no-external">Causal-ish: On causal inference, correlational scaffolding, and verb policing.</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_2.html" class="no-external">Strong Opinions, Weak Instruments.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_2.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763506800000" data-listing-file-modified-sort="1763928712950" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="803">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_1.html" class="no-external"></a></p><a href="./blog/posts/post_1.html" class="no-external">
-<p><img src="./blog/posts/files/ponder.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_1.html" class="no-external">Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_1.html" class="no-external">Hot Takes in Cold Blood</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_1.html" class="no-external">
-<div class="listing-date">
-Nov 19, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -721,12 +606,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./privacy.html">
+    <a class="nav-link" href="../../privacy.html">
 <p>Privacy Policy/Datenschutz</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./imprint.html">
+    <a class="nav-link" href="../../imprint.html">
 <p>Imprint/Impressum</p>
 </a>
   </li>  
