@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexander Vossen">
+<meta name="dcterms.date" content="2026-02-18">
+<meta name="description" content="The Gospel According to Open Science.">
 
-<title>The Accidental Data Scientist</title>
+<title>Swords into Plowshares: On Open Science and Morals.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,71 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="The Accidental Data Scientist">
-<meta property="og:description" content="">
-<meta name="twitter:title" content="The Accidental Data Scientist">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Swords into Plowshares: On Open Science and Morals.">
+<meta property="og:description" content="The Gospel According to Open Science.">
+<meta property="og:image" content="https://alexandervossen.github.io/blog/posts/files/crown.jpg">
+<meta name="twitter:title" content="Swords into Plowshares: On Open Science and Morals.">
+<meta name="twitter:description" content="The Gospel According to Open Science.">
+<meta name="twitter:image" content="https://alexandervossen.github.io/blog/posts/files/crown.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -147,19 +92,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news.html"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
 </ul>
@@ -175,20 +120,41 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="academic life">academic life <span class="quarto-category-count">(1)</span></div><div class="category" data-category="grumpy-statistics">grumpy-statistics <span class="quarto-category-count">(3)</span></div><div class="category" data-category="methods">methods <span class="quarto-category-count">(3)</span></div><div class="category" data-category="open science">open science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="opinions">opinions <span class="quarto-category-count">(3)</span></div><div class="category" data-category="replication">replication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="seminars">seminars <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Accidental Data Scientist</h1>
-</div>
+<h1 class="title">Swords into Plowshares: On Open Science and Morals.</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">open science</div>
+    <div class="quarto-category">replication</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    The Gospel According to Open Science.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexander Vossen </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 18, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -198,202 +164,32 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to The Accidental Data Scientists—a not-so-subtle nod to the legendary George Box and his autobiography, which you should absolutely read. Box famously said he didn’t choose to become a statistician; necessity led him down this wonderfully twisted statistical rabbit hole—a journey many of us know all too well. My path was similar, though admittedly less perilous (no developing Nazi countermeasures for me, just a lot of entrepreneurial research). You might call that “necessity-driven” career planning. This blog was born somewhere between a mid-career crisis and a statistics-induced existential reckoning. Beyond the personal stories and statistical musings, I’ll also share what I believe ails our field most: a chronic lack of clear thinking with data. Too often, researchers lean on formulas, models, and tests like checklists—missing the bigger picture and nuance that real insight demands. You’ll find this critique weaved through many posts as a common thread.</p>
-<p>This blog is part therapy (mostly for me, not you) and part thematic exploration. It chronicles my personal journey and how it shaped the researcher I am today—take that for good or bad. As you read along, I hope you’ll find some of my experiences useful for reflecting on your own. Everything here is my personal opinion. Acknowledging that much of what passes for “knowing” in statistics is really just well-informed opinion is a crucial first step on the road to progress. I’m happy to help you get going — feel free to disagree, of course. Yes, I’m occasionally wrong, because being a scientist means rarely being absolutely certain but always being eager to learn when mistaken.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/sword.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Photo by <a href="https://unsplash.com/de/@gioele_fazzeri_89">Gioele Fazzeri</a> on <a href="https://unsplash.com/de/fotos/eine-reihe-verschiedener-arten-von-werkzeugen-auf-einem-felsen-DhRlAejHfMc">Unsplash</a></p>
+<p>One of my core beliefs is that the search for truth is necessarily collaborative. No single study is ever the answer. At best, it is a contribution to an ongoing conversation that stretches across contexts, disciplines, and time. As such, I have always been a strong supporter of replication, particularly the honest kind that asks under which conditions previously observed results hold and under which conditions they do not. Replication, in that sense, is not an attempt to catch someone out. It is an attempt to understand the boundaries of a claim.</p>
+<p>We <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352673423000483">recently</a> did something along those lines ourselves. We published a paper that replicated a study conducted with British entrepreneurs by running a comparable study with entrepreneurs in Germany. The result was perhaps the least scandalous headline imaginable: the findings differed. This should not have been surprising. Although I genuinely believe that Germans and Brits have far more in common than either side sometimes assumes, institutional, cultural, and structural differences remain. These differences matter.</p>
+<p>What is noteworthy, however, is what we did not conclude. We did not declare that the original study was wrong. We did not claim that we had “failed” to replicate in a way that would somehow diminish the earlier work. Quite the opposite. The divergence suggested that there are institutional context factors at play that neither study captured fully. There are always institutional factors. The fact that we do not measure them all does not invalidate research; it reminds us of its situated nature. If anything, the combination of both studies paints a richer picture than either one alone.</p>
+<p>To me, this is what Open Science at its best should look like. Not a game of gotcha. Not a public ranking of who replicated whom more successfully. But a cumulative effort to understand where claims travel well and where they bend under contextual pressure.</p>
+<p>I have always considered myself a fairly strong proponent of truth. Not in the heroic, Indiana Jones sense of the word, although, strictly speaking, he is a university professor, but I was informed by HR that I am not allowed to bring my whip to work. My commitment is of a far less cinematic variety. I am attached to truth in the statistical sense, in the quiet belief that if we gather enough memory, enough data, and enough patience, we might make decisions that are at least slightly less wrong than the ones we would otherwise make. This is not a revolutionary ambition. It does not promise redemption. It promises incremental improvement, and that has always seemed realistic enough for science.</p>
+<p>Recently, I was installed as Open Science ambassador for my school, JADS, at Tilburg University. You can find the interview, which in the finest academic tradition I largely conducted with myself, <a href="https://www.tilburguniversity.edu/research/open-science-community/alexander-vossen">here</a>. The appointment forced me to articulate what exactly I believe Open Science is, what it is becoming, and what it might risk becoming if we are not careful. This post is the result of that reflection.</p>
+<p>Science has always required a peculiar kind of collective faith. We write papers knowing that most of them will be read by a handful of people, two of whom are reviewers who may already dislike the premise before reaching page three, and yet we persist. We persist because there is a shared assumption that the pile grows, that memory accumulates, and that across decades and disciplines this accumulation produces something that deserves to be called progress. The individual contribution is usually small and occasionally embarrassing, but the collective project feels meaningful.</p>
+<p>Open Science emerges quite naturally from that logic. If better memory enables better decisions, then more transparency, more documentation, and more accessible data should strengthen the enterprise. The argument is, at its core, disarmingly reasonable. Share what you did. Make your steps visible. Allow others to build on your work without having to reverse engineer your spreadsheets at two in the morning. None of this sounds radical. It sounds like good housekeeping for a knowledge system.</p>
+<p>And yet Open Science has grown beyond housekeeping. It has developed its own language, its own rituals, and its own symbols of virtue. There are canonical readings, preregistration norms, badges, repositories, and increasingly clear signals about what counts as proper conduct. There is rarely a day on which I do not read an abstract that already announces, almost ceremonially, that the study is a “preregistered experiment,” as if the label itself were part of the result. While preregistration is often valuable, the performative emphasis sometimes feels uncomfortably close to virtue signaling, as though methodological commitments were becoming markers of moral standing rather than tools for improving inference.</p>
+<p>This is not surprising. Any movement that aims to reshape institutional practice requires shared norms and shared vocabulary. Encultification is how collective change happens. People repeat certain practices, internalize them, and eventually judge deviations from them.</p>
+<p>The difficulty begins when the boundary between methodological preference and moral virtue becomes blurred. When language becomes a signal of belonging rather than a tool of clarification, when procedural commitments turn into markers of personal integrity, and when disagreement is interpreted less as epistemic diversity and more as ethical deficiency, a movement that began as a pragmatic reform risks acquiring the tone of moral judgment. Feeling righteous is an easy temptation in academia, especially when one believes to be on the side of improvement.</p>
+<p>At this point, religious history offers a cautionary tale. Belief systems that attempted to expand primarily through coercion, whether in the form of crusades, inquisitions, or other spectacles of enforcement, were capable of producing compliance and fear, but rarely deep and lasting conviction. Durable transformation did not arise from the sword. It arose when missionaries entered local communities, learned their language, embedded themselves in existing social structures, and demonstrated through lived example why a particular set of practices might be coherent and meaningful. They did not begin by demanding purification. They began by translating.</p>
+<p>If Open Science increasingly resembles a gospel in its vocabulary and its normative ambitions, then it would be wise to consider which historical strategy it wishes to emulate. Crusading for methodological purity, publicly shaming deviations, or treating colleagues as obstacles to reform may generate visibility, but it is unlikely to produce durable cultural change. What might prove more effective is the less glamorous work of translation. Enter different methodological cultures, understand their constraints and incentives, and demonstrate patiently how certain practices improve collective memory without demanding immediate conversion. Reform spreads most sustainably when it is locally embedded and voluntarily adopted.</p>
+<p>In my earlier post, <a href="https://alexandervossen.github.io/blog/posts/post_2.html">Causal-ish</a>, I argued that science rarely delivers certainty. It delivers approximations that are useful under specific assumptions and fragile outside them. Models are always simplifications. Claims are always conditional. Progress is real, but it is rarely pure. If that is the nature of our epistemic enterprise, then Open Science should embody the same humility. Its purpose is not to purify science or to divide the righteous from the misguided. Its purpose is to help the system remember better and, as a consequence, to help it err slightly less often.</p>
+<p>If Open Science has become a kind of gospel, then it should behave like a mature one. Maturity means resisting the temptation to define oneself primarily through denunciation. It means recognizing that cultural change is not sustained by perpetual outrage, nor by the ritual exposure of the next big fish to grill or the next glamorous name to sacrifice on the altar of replication. I have never been particularly fond of watchdog blogs whose energy is devoted almost exclusively to uncovering failure while rarely acknowledging improvement, as if progress were somehow less compelling than scandal. Critique is indispensable, but when critique becomes identity, it narrows the very community it seeks to reform and risks turning reform into spectacle.</p>
+<p>A movement that aims to strengthen science should derive its cohesion not from public shaming but from demonstrably better practice. If our shared ambition is to improve how we remember, how we document, and how we build on one another’s work, then our tone and our strategy should reflect that ambition. And so, in the best biblical sense, perhaps it is time for us, as Open Science advocates, to turn our swords into plowshares, to lay down the instinct to police and instead cultivate, and to use those tools to work productively on the vast and imperfect field of science that we all share. The study of British and German entrepreneurs did not weaken either side of the conversation; it enriched it. That, to me, is what careful cultivation looks like. Redemption is not required. Incremental improvement will suffice. In a discipline devoted to approximation, that is ambition enough.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="open science,replication" data-listing-date-sort="1771369200000" data-listing-file-modified-sort="1771422620042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1439">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_5.html" class="no-external"></a></p><a href="./blog/posts/post_5.html" class="no-external">
-<p><img src="./blog/posts/files/crown.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_5.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_5.html" class="no-external">Swords into Plowshares: On Open Science and Morals.</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_5.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('open science'); return false;">
-open science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('replication'); return false;">
-replication
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_5.html" class="no-external">The Gospel According to Open Science.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_5.html" class="no-external">
-<div class="listing-date">
-Feb 18, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="methods,seminars,grumpy-statistics" data-listing-date-sort="1768086000000" data-listing-file-modified-sort="1768132674236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2025">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_4.html" class="no-external"></a></p><a href="./blog/posts/post_4.html" class="no-external">
-<p><img src="./blog/posts/files/crown.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_4.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_4.html" class="no-external">IVy League Thinking: The right instrument for every job (or so we pretend).</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_4.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('seminars'); return false;">
-seminars
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_4.html" class="no-external">Methods Are Tools, Not Answers.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_4.html" class="no-external">
-<div class="listing-date">
-Jan 11, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="academic life,opinions,seminars" data-listing-date-sort="1765494000000" data-listing-file-modified-sort="1768131316191" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_3.html" class="no-external"></a></p><a href="./blog/posts/post_3.html" class="no-external">
-<p><img src="./blog/posts/files/d_d.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_3.html" class="no-external">Dungeons &amp; Deans: On Seminars, Side-Quests, and Academic Leveling</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('academic life'); return false;">
-academic life
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('seminars'); return false;">
-seminars
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_3.html" class="no-external">Advice from someone who has failed too many wisdom saving throws.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_3.html" class="no-external">
-<div class="listing-date">
-Dec 12, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763938800000" data-listing-file-modified-sort="1763928721620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_2.html" class="no-external"></a></p><a href="./blog/posts/post_2.html" class="no-external">
-<p><img src="https://imgs.xkcd.com/comics/correlation.png" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_2.html" class="no-external">Causal-ish: On causal inference, correlational scaffolding, and verb policing.</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_2.html" class="no-external">Strong Opinions, Weak Instruments.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_2.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="methods,opinions,grumpy-statistics" data-listing-date-sort="1763506800000" data-listing-file-modified-sort="1763928712950" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="803">
-<div class="thumbnail">
-<p><a href="./blog/posts/post_1.html" class="no-external"></a></p><a href="./blog/posts/post_1.html" class="no-external">
-<p><img src="./blog/posts/files/ponder.jpg" class="thumbnail-image"></p>
-</a><p><a href="./blog/posts/post_1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/posts/post_1.html" class="no-external">Why I No Longer Chase Statistical Trends (and Why You Probably Shouldn’t Either)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blog/posts/post_1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('methods'); return false;">
-methods
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('opinions'); return false;">
-opinions
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('grumpy-statistics'); return false;">
-grumpy-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="./blog/posts/post_1.html" class="no-external">Hot Takes in Cold Blood</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blog/posts/post_1.html" class="no-external">
-<div class="listing-date">
-Nov 19, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -790,12 +586,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./privacy.html">
+    <a class="nav-link" href="../../privacy.html">
 <p>Privacy Policy/Datenschutz</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./imprint.html">
+    <a class="nav-link" href="../../imprint.html">
 <p>Imprint/Impressum</p>
 </a>
   </li>  
